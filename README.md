@@ -38,6 +38,42 @@ WHERE c.INPUT_DATE >= '2020-01-01'
 GROUP BY 1 ORDER BY 2 DESC LIMIT 10;
 ```
 
+## Remote access (no download required)
+
+The pre-built database is hosted on Hugging Face. Query it directly without downloading:
+
+### From DuckDB CLI
+
+```sql
+INSTALL httpfs;
+LOAD httpfs;
+ATTACH 'https://huggingface.co/datasets/ian-nason/eoir-database/resolve/main/eoir.duckdb' AS eoir (READ_ONLY);
+SELECT * FROM eoir._metadata;
+```
+
+### From Python
+
+```python
+import duckdb
+con = duckdb.connect()
+con.sql("INSTALL httpfs; LOAD httpfs;")
+con.sql("ATTACH 'https://huggingface.co/datasets/ian-nason/eoir-database/resolve/main/eoir.duckdb' AS eoir (READ_ONLY)")
+con.sql("SELECT * FROM eoir._metadata").show()
+```
+
+### From Google Colab
+
+```python
+!pip install duckdb -q
+import duckdb
+con = duckdb.connect()
+con.sql("INSTALL httpfs; LOAD httpfs;")
+con.sql("ATTACH 'https://huggingface.co/datasets/ian-nason/eoir-database/resolve/main/eoir.duckdb' AS eoir (READ_ONLY)")
+con.sql("SELECT * FROM eoir.v_proceedings_full LIMIT 10").show()
+```
+
+DuckDB uses HTTP range requests, so only the pages needed for your query are downloaded -- you're not pulling the entire database.
+
 ## Colab quickstart
 
 Want to query the data without installing anything locally? Open the [Colab notebook](examples/colab_quickstart.ipynb):
@@ -178,21 +214,28 @@ See [`examples/query_examples.sql`](examples/query_examples.sql) for 15 ready-to
 - Appeals volume
 - Languages spoken
 
-## Example analysis
+## Example analyses
 
-See [`examples/nyv_detained_237.py`](examples/nyv_detained_237.py) for a comprehensive analysis of detained S.237 removal proceedings at Varick Street Immigration Court (NYV). It covers:
-
-- Timeline analysis (OSC to first hearing, detention to hearing)
-- Demographics (nationalities, criminal indicators, judge variation)
-- Representation rates and time to counsel
-- Case outcomes by wait time
-- Applications for relief with grant rates
-- Bond decisions and amounts
+[`examples/court_analysis.py`](examples/court_analysis.py) is a parameterized analysis script covering timelines, demographics, representation, outcomes, applications, and bond. It works for any court, custody status, or charge section.
 
 ```bash
-uv run python examples/nyv_detained_237.py
-uv run python examples/nyv_detained_237.py --db /path/to/eoir.duckdb --pdf
+# Detained S.237 at Varick Street (default)
+uv run python examples/court_analysis.py --db eoir.duckdb
+
+# All detained cases in Miami
+uv run python examples/court_analysis.py --db eoir.duckdb --court MIA --charge % --pdf
+
+# Non-detained asylum cases in San Francisco
+uv run python examples/court_analysis.py --db eoir.duckdb --court SFR --custody N --charge 208 --pdf
+
+# Compare all New York courts
+uv run python examples/court_analysis.py --db eoir.duckdb --court NYC,NYV,NYB,NYD --pdf
+
+# Custom lookback window
+uv run python examples/court_analysis.py --db eoir.duckdb --court NYV --months 24 --trend-start 2018
 ```
+
+[`examples/nyv_detained_237.py`](examples/nyv_detained_237.py) is a convenience wrapper with NYV defaults.
 
 ## Known issues
 
@@ -204,8 +247,6 @@ uv run python examples/nyv_detained_237.py --db /path/to/eoir.duckdb --pdf
 
 ## Coming soon
 
-- Hugging Face hosting for the pre-built database
-- Remote `ATTACH` access (query without downloading)
 - More example analyses
 
 ## License

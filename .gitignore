@@ -3,3 +3,5 @@ data/raw/
 *.duckdb.wal
 __pycache__/
 .venv/
+figures/
+output/

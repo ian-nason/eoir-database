@@ -589,8 +589,12 @@ VIEWS = {
         LEFT JOIN lu_base_city bc ON p.BASE_CITY_CODE = bc.BASE_CITY_CODE
         LEFT JOIN lu_judge j ON p.IJ_CODE = j.JUDGE_CODE
         LEFT JOIN lu_nationality n ON p.NAT = n.NAT_CODE
-        LEFT JOIN lu_court_decision d
-            ON p.DEC_CODE = d.strDecCode AND p.CASE_TYPE = d.strCaseType
+        LEFT JOIN (
+            SELECT DISTINCT ON (strDecCode, strCaseType)
+                strDecCode, strCaseType, strDecDescription
+            FROM lu_court_decision
+            ORDER BY strDecCode, strCaseType, blnActive DESC NULLS LAST
+        ) d ON p.DEC_CODE = d.strDecCode AND p.CASE_TYPE = d.strCaseType
     """,
     "v_first_hearing": """
         CREATE OR REPLACE VIEW v_first_hearing AS
