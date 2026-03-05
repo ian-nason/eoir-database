@@ -245,6 +245,12 @@ uv run python examples/court_analysis.py --db eoir.duckdb --court NYV --months 2
 - **Monthly updates:** EOIR updates the dump monthly. Re-running the build script will re-download and rebuild from scratch. The zip URL is stable.
 - **Large tables:** The `schedule` table (~45M rows) and `representatives` table (~26M rows) take the longest. Total build time is typically ~5 minutes.
 
+## Data validation
+
+33/35 automated checks pass (row counts, type casting, referential integrity, lookup coverage, view correctness, data freshness, end-to-end queries). The one noted item is a source data characteristic, not a build issue:
+
+- **Charge lookup coverage** is 76.5% — EOIR's `lu_charges` table only contains 252 of the 571 distinct charge codes in the data. Pattern-based queries (`CHARGE LIKE '%237%'`) work fine; only joins to `lu_charges` for descriptions are affected.
+
 ## Coming soon
 
 - More example analyses
