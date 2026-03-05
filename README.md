@@ -1,5 +1,7 @@
 # eoir-database
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
 Build a clean, queryable [DuckDB](https://duckdb.org/) database from the EOIR (Executive Office for Immigration Review) immigration court FOIA data dump.
 
 The EOIR dataset is the most comprehensive source of U.S. immigration court data — every proceeding, charge, hearing, application for relief, bond hearing, and appeal since the 1970s. But working with the raw files is painful: a single ~4 GB zip containing dozens of tab-delimited CSVs with inconsistent formatting, null bytes, malformed rows, and no type information.
@@ -14,7 +16,7 @@ Modeled on [paulgp/ipeds-database](https://github.com/paulgp/ipeds-database).
 # Install dependencies (using uv)
 uv sync
 
-# Build the database (downloads ~4 GB, takes 15-30 min)
+# Build the database (downloads ~4 GB, takes ~5 min)
 uv run python build_database.py
 
 # Query it
@@ -35,6 +37,14 @@ JOIN lu_nationality n ON c.NAT = n.NAT_CODE
 WHERE c.INPUT_DATE >= '2020-01-01'
 GROUP BY 1 ORDER BY 2 DESC LIMIT 10;
 ```
+
+## Colab quickstart
+
+Want to query the data without installing anything locally? Open the [Colab notebook](examples/colab_quickstart.ipynb):
+
+1. Upload `eoir.duckdb` to your Google Drive (or build it in Colab from the zip)
+2. Open the notebook in Colab
+3. Start querying — the notebook includes guided examples covering case volumes, wait times, representation rates, and outcomes
 
 ## Usage
 
@@ -62,7 +72,7 @@ EOIR publishes a monthly data dump at their [FOIA Library](https://www.justice.g
 - **Download URL:** `https://fileshare.eoir.justice.gov/EOIR%20Case%20Data.zip`
 - ~4 GB zip, extracts to ~15-20 GB of tab-delimited CSV files
 - Updated monthly
-- Contains two directories: `Data/` (core tables) and `Lookup/` (reference tables)
+- Contains two directories: `EOIR Case Data/` (core tables) and `Lookup/` (reference tables)
 
 ## Tables
 
@@ -70,47 +80,46 @@ EOIR publishes a monthly data dump at their [FOIA Library](https://www.justice.g
 
 | Table | Source file | Description | ~Rows |
 |-------|-----------|-------------|------:|
-| `cases` | `A_TblCase.csv` | Case-level demographics, custody, dates, attorney | ~8M |
+| `cases` | `A_TblCase.csv` | Case-level demographics, custody, dates, attorney | ~12M |
 | `proceedings` | `B_TblProceeding.csv` | Proceedings: hearings, decisions, judges | ~16M |
 | `charges` | `B_TblProceedCharges.csv` | Individual charges per proceeding | ~18M |
 | `schedule` | `tbl_schedule.csv` | Hearing schedule, calendar type, adjournments | ~45M |
-| `applications` | `tbl_Court_Appln.csv` | Applications for relief (asylum, etc.) | ~15M |
-| `bonds` | `D_TblAssociatedBond.csv` | Bond hearing records and amounts | ~1.5M |
-| `representatives` | `tbl_RepsAssigned.csv` | Attorney representation records | ~25M |
-| `motions` | `tbl_Court_Motions.csv` | Motions filed in proceedings | — |
-| `appeals` | `tblAppeal.csv` | Appeals to Board of Immigration Appeals | — |
-| `custody_history` | `tbl_CustodyHistory.csv` | Custody status changes | — |
-| `case_identifiers` | `A_TblCaseIdentifier.csv` | Case ID cross-references | — |
-| `juvenile_history` | `tbl_JuvenileHistory.csv` | Juvenile designation records | — |
-| `lead_rider` | `tbl_Lead_Rider.csv` | Lead/rider case relationships | — |
-| `case_priority_history` | `tbl_CasePriorityHistory.csv` | Priority code changes | — |
-| `attorneys` | `tbl_EOIR_Attorney.csv` | Attorney registry | — |
-| `actions` | `tblAction.csv` | Docket actions/events | — |
-| `pro_bono` | `tblProBono.csv` | Pro bono screening records | — |
+| `applications` | `tbl_Court_Appln.csv` | Applications for relief (asylum, etc.) | ~16M |
+| `bonds` | `D_TblAssociatedBond.csv` | Bond hearing records and amounts | ~1.6M |
+| `representatives` | `tbl_RepsAssigned.csv` | Attorney representation records | ~26M |
+| `motions` | `tbl_Court_Motions.csv` | Motions filed in proceedings | ~8M |
+| `appeals` | `tblAppeal.csv` | Appeals to Board of Immigration Appeals | ~1.5M |
+| `custody_history` | `tbl_CustodyHistory.csv` | Custody status changes | ~10M |
+| `case_identifiers` | `A_TblCaseIdentifier.csv` | Case ID cross-references | ~2.4M |
+| `juvenile_history` | `tbl_JuvenileHistory.csv` | Juvenile designation records | ~3M |
+| `lead_rider` | `tbl_Lead_Rider.csv` | Lead/rider case relationships | ~2.6M |
+| `case_priority_history` | `tbl_CasePriorityHistory.csv` | Priority code changes | ~138K |
+| `attorneys` | `tbl_EOIR_Attorney.csv` | Attorney registry | ~404K |
+| `pro_bono` | `tblProBono.csv` | Pro bono screening records | ~66K |
 
 ### Lookup tables
 
-All files in the `Lookup/` directory are loaded with the `lu_` prefix. Key ones:
+All files in the `Lookup/` directory are loaded with the `lu_` prefix (78 tables total). Key ones:
 
 | Table | Description | Key columns |
 |-------|-------------|-------------|
-| `lu_nationality` | Country/nationality codes | `NAT_CODE` → `NAT_NAME`, `NAT_COUNTRY_NAME` |
-| `lu_language` | Language codes | `strCode` → `strDescription` |
-| `lu_base_city` | Immigration court locations | `BASE_CITY_CODE` → `BASE_CITY_NAME` |
-| `lu_hearing_location` | Hearing locations & detention type | `HEARING_LOC_CODE` → name, address |
-| `lu_judge` | Immigration judge codes | `JUDGE_CODE` → `JUDGE_NAME` |
-| `lu_charges` | Charge codes | `strCode` → `strCodeDescription` |
-| `lu_court_decision` | Court decision codes (by case type) | `strDecCode` × `strCaseType` → description |
-| `lu_app_decision` | Application decision codes | `strCourtApplnDecCode` → description |
-| `lu_cal_type` | Calendar type codes | `strCalTypeCode` → description |
-| `lu_adjournment` | Adjournment reason codes | `strcode` → `strDesciption` |
-| `lu_application` | Application type codes | `strcode` → `strdescription` |
-| `lu_custody_status` | Custody status codes | `strCode` → description |
-| `lu_case_type` | Case type codes | `strCode` → description |
-| `lu_motion_type` | Motion type codes | `strMotionCode` → description |
-| `lu_bia_decision` | BIA decision codes | `strCode` → description |
-| `lu_schedule_type` | Schedule type codes | `strCode` → description |
-| `lu_state` | U.S. state codes | `state_code` → `state_name` |
+| `lu_nationality` | Country/nationality codes | `NAT_CODE` -> `NAT_NAME`, `NAT_COUNTRY_NAME` |
+| `lu_language` | Language codes | `strCode` -> `strDescription` |
+| `lu_base_city` | Immigration court locations | `BASE_CITY_CODE` -> `BASE_CITY_NAME` |
+| `lu_hearing_location` | Hearing locations & detention type | `HEARING_LOC_CODE` -> name, address |
+| `lu_judge` | Immigration judge codes | `JUDGE_CODE` -> `JUDGE_NAME` |
+| `lu_charges` | Charge codes | `strCode` -> `strCodeDescription` |
+| `lu_court_decision` | Court decision codes (by case type) | `strDecCode` x `strCaseType` -> description |
+| `lu_app_decision` | Application decision codes | `strCourtApplnDecCode` -> description |
+| `lu_cal_type` | Calendar type codes | `strCalTypeCode` -> description |
+| `lu_adjournment` | Adjournment reason codes | `strcode` -> `strDesciption` |
+| `lu_application` | Application type codes | `strcode` -> `strdescription` |
+| `lu_custody_status` | Custody status codes | `strCode` -> description |
+| `lu_case_type` | Case type codes | `strCode` -> description |
+| `lu_motion_type` | Motion type codes | `strMotionCode` -> description |
+| `lu_bia_decision` | BIA decision codes | `strCode` -> description |
+| `lu_schedule_type` | Schedule type codes | `strCode` -> description |
+| `lu_state` | U.S. state codes | `state_code` -> `state_name` |
 
 Any additional lookup files found are also loaded automatically.
 
@@ -135,7 +144,7 @@ The most important columns for joining tables:
 - **`BASE_CITY_CODE`** — Immigration court code. Join to `lu_base_city`.
 - **`IJ_CODE`** / **`JUDGE_CODE`** — Judge code. Join to `lu_judge`.
 - **`NAT`** / **`NAT_CODE`** — Nationality code. Join to `lu_nationality`.
-- **`DEC_CODE`** × **`CASE_TYPE`** — Decision code (compound key). Join to `lu_court_decision`.
+- **`DEC_CODE`** x **`CASE_TYPE`** — Decision code (compound key). Join to `lu_court_decision`.
 - **`CHARGE`** — Charge code. Join to `lu_charges` on `strCode`.
 - **`LANG`** — Language code. Join to `lu_language` on `strCode`.
 
@@ -143,11 +152,11 @@ The most important columns for joining tables:
 
 All columns are read as VARCHAR first, then cast using DuckDB's `TRY_CAST`:
 
-- **Date columns** (`*_DATE`, `DAT*`, etc.) → `DATE`
-- **ID columns** (`IDN*`) → `INTEGER`
-- **Money columns** (`INITIAL_BOND`, `NEW_BOND`) → `DOUBLE`
-- **Boolean columns** (`bln*`, `LPR`, `AGGRAVATE_FELON`) → `BOOLEAN`
-- **Everything else** → `VARCHAR`
+- **Date columns** (`*_DATE`, `DAT*`, etc.) -> `DATE`
+- **ID columns** (`IDN*`) -> `INTEGER`
+- **Money columns** (`INITIAL_BOND`, `NEW_BOND`) -> `DOUBLE`
+- **Boolean columns** (`bln*`, `LPR`, `AGGRAVATE_FELON`) -> `BOOLEAN`
+- **Everything else** -> `VARCHAR`
 
 `TRY_CAST` returns `NULL` for unparseable values rather than failing, so no rows are lost.
 
@@ -169,13 +178,35 @@ See [`examples/query_examples.sql`](examples/query_examples.sql) for 15 ready-to
 - Appeals volume
 - Languages spoken
 
+## Example analysis
+
+See [`examples/nyv_detained_237.py`](examples/nyv_detained_237.py) for a comprehensive analysis of detained S.237 removal proceedings at Varick Street Immigration Court (NYV). It covers:
+
+- Timeline analysis (OSC to first hearing, detention to hearing)
+- Demographics (nationalities, criminal indicators, judge variation)
+- Representation rates and time to counsel
+- Case outcomes by wait time
+- Applications for relief with grant rates
+- Bond decisions and amounts
+
+```bash
+uv run python examples/nyv_detained_237.py
+uv run python examples/nyv_detained_237.py --db /path/to/eoir.duckdb --pdf
+```
+
 ## Known issues
 
 - **Zip extraction:** The EOIR zip file does not extract properly with some archive utilities. The build script uses Python's `zipfile` module and falls back to the `unzip` command if that fails.
 - **Data quality:** The raw CSVs contain null bytes, inconsistent quoting, and malformed rows. The `ignore_errors` and `null_padding` options in DuckDB's CSV reader handle most of these, but a small number of rows may be silently dropped.
 - **Column names:** Column names are preserved as-is from the source files (mixed case, inconsistent naming conventions). This matches what existing EOIR researchers expect.
 - **Monthly updates:** EOIR updates the dump monthly. Re-running the build script will re-download and rebuild from scratch. The zip URL is stable.
-- **Large tables:** The `schedule` table (~45M rows) and `representatives` table (~25M rows) take several minutes each to build. Total build time is typically 15-30 minutes depending on hardware.
+- **Large tables:** The `schedule` table (~45M rows) and `representatives` table (~26M rows) take the longest. Total build time is typically ~5 minutes.
+
+## Coming soon
+
+- Hugging Face hosting for the pre-built database
+- Remote `ATTACH` access (query without downloading)
+- More example analyses
 
 ## License
 
