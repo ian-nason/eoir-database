@@ -241,7 +241,7 @@ uv run python examples/court_analysis.py --db eoir.duckdb --court NYV --months 2
 
 - **Zip extraction:** The EOIR zip file does not extract properly with some archive utilities. The build script uses Python's `zipfile` module and falls back to the `unzip` command if that fails.
 - **Data quality:** The raw CSVs contain null bytes, inconsistent quoting, and malformed rows. The `ignore_errors` and `null_padding` options in DuckDB's CSV reader handle most of these, but a small number of rows may be silently dropped.
-- **Column names:** Column names are preserved as-is from the source files (mixed case, inconsistent naming conventions). This matches what existing EOIR researchers expect.
+- **Column names:** Column names are preserved as-is from the source files (mixed case, inconsistent naming conventions). 
 - **Monthly updates:** EOIR updates the dump monthly. Re-running the build script will re-download and rebuild from scratch. The zip URL is stable.
 - **Large tables:** The `schedule` table (~45M rows) and `representatives` table (~26M rows) take the longest. Total build time is typically ~5 minutes.
 
@@ -258,3 +258,4 @@ uv run python examples/court_analysis.py --db eoir.duckdb --court NYV --months 2
 ## License
 
 MIT
+
