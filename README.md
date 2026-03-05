@@ -47,7 +47,7 @@ The pre-built database is hosted on Hugging Face. Query it directly without down
 ```sql
 INSTALL httpfs;
 LOAD httpfs;
-ATTACH 'https://huggingface.co/datasets/ian-nason/eoir-database/resolve/main/eoir.duckdb' AS eoir (READ_ONLY);
+ATTACH 'https://huggingface.co/datasets/Nason/eoir-database/resolve/main/eoir.duckdb' AS eoir (READ_ONLY);
 SELECT * FROM eoir._metadata;
 ```
 
@@ -57,7 +57,7 @@ SELECT * FROM eoir._metadata;
 import duckdb
 con = duckdb.connect()
 con.sql("INSTALL httpfs; LOAD httpfs;")
-con.sql("ATTACH 'https://huggingface.co/datasets/ian-nason/eoir-database/resolve/main/eoir.duckdb' AS eoir (READ_ONLY)")
+con.sql("ATTACH 'https://huggingface.co/datasets/Nason/eoir-database/resolve/main/eoir.duckdb' AS eoir (READ_ONLY)")
 con.sql("SELECT * FROM eoir._metadata").show()
 ```
 
@@ -68,7 +68,7 @@ con.sql("SELECT * FROM eoir._metadata").show()
 import duckdb
 con = duckdb.connect()
 con.sql("INSTALL httpfs; LOAD httpfs;")
-con.sql("ATTACH 'https://huggingface.co/datasets/ian-nason/eoir-database/resolve/main/eoir.duckdb' AS eoir (READ_ONLY)")
+con.sql("ATTACH 'https://huggingface.co/datasets/Nason/eoir-database/resolve/main/eoir.duckdb' AS eoir (READ_ONLY)")
 con.sql("SELECT * FROM eoir.v_proceedings_full LIMIT 10").show()
 ```
 

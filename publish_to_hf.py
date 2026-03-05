@@ -3,7 +3,7 @@
 
 Usage:
     uv run python publish_to_hf.py
-    uv run python publish_to_hf.py --db eoir.duckdb --repo ian-nason/eoir-database
+    uv run python publish_to_hf.py --db eoir.duckdb --repo Nason/eoir-database
     HF_TOKEN=hf_xxx uv run python publish_to_hf.py
 """
 
@@ -64,7 +64,7 @@ Built with [eoir-database](https://github.com/ian-nason/eoir-database).
 ```sql
 INSTALL httpfs;
 LOAD httpfs;
-ATTACH 'https://huggingface.co/datasets/ian-nason/eoir-database/resolve/main/eoir.duckdb' AS eoir (READ_ONLY);
+ATTACH 'https://huggingface.co/datasets/Nason/eoir-database/resolve/main/eoir.duckdb' AS eoir (READ_ONLY);
 
 -- Query immediately
 SELECT court_name, COUNT(*) as cases
@@ -82,7 +82,7 @@ import duckdb
 con = duckdb.connect()
 con.sql("INSTALL httpfs; LOAD httpfs;")
 con.sql(\"\"\"
-    ATTACH 'https://huggingface.co/datasets/ian-nason/eoir-database/resolve/main/eoir.duckdb'
+    ATTACH 'https://huggingface.co/datasets/Nason/eoir-database/resolve/main/eoir.duckdb'
     AS eoir (READ_ONLY)
 \"\"\")
 con.sql("SELECT * FROM eoir._metadata").show()
@@ -115,7 +115,7 @@ def main():
         description="Upload eoir.duckdb to Hugging Face"
     )
     parser.add_argument("--db", type=Path, default=Path("eoir.duckdb"))
-    parser.add_argument("--repo", default="ian-nason/eoir-database")
+    parser.add_argument("--repo", default="Nason/eoir-database")
     parser.add_argument("--token", help="HF token (or set HF_TOKEN env var)")
     args = parser.parse_args()
 
