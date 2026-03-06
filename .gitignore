@@ -1,7 +1,9 @@
 data/raw/
+data/.last_eoir_modified
 *.duckdb
 *.duckdb.wal
 __pycache__/
 .venv/
 figures/
 output/
+logs/
