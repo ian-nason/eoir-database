@@ -799,6 +799,158 @@ def run_sanity_checks(con: duckdb.DuckDBPyConnection, db_path: Path):
 
 
 # ---------------------------------------------------------------------------
+# Data dictionary
+# ---------------------------------------------------------------------------
+
+def build_columns_table(con):
+    """Build the _columns data dictionary table."""
+    con.execute("DROP TABLE IF EXISTS _columns")
+
+    # Base columns from information_schema
+    con.execute("""
+        CREATE TABLE _columns AS
+        SELECT
+            c.table_name,
+            c.column_name,
+            c.data_type,
+            m.source_file
+        FROM information_schema.columns c
+        LEFT JOIN _metadata m ON m.table_name = c.table_name
+        WHERE c.table_schema = 'main'
+          AND c.table_name NOT IN ('_metadata', '_columns')
+    """)
+
+    # Add enrichment columns
+    con.execute("ALTER TABLE _columns ADD COLUMN example_value VARCHAR")
+    con.execute("ALTER TABLE _columns ADD COLUMN join_hint VARCHAR")
+    con.execute("ALTER TABLE _columns ADD COLUMN null_pct DOUBLE")
+
+    # Known join hints for EOIR
+    join_hints = {
+        "IDNCASE": "Primary case ID, joins across all core tables",
+        "IDNPROCEEDING": "Proceeding ID, joins proceedings to charges, schedule, motions",
+        "NAT": "Joins to lu_nationality.NAT_CODE",
+        "LANG": "Joins to lu_language.LANG_CODE",
+        "BASE_CITY_CODE": "Joins to lu_base_city.BASE_CITY_CODE",
+        "IJ_CODE": "Joins to lu_judge.JUDGE_CODE",
+        "HEARING_LOC_CODE": "Joins to lu_hearing_location.LOC_CODE",
+        "ADJ_RSN": "Joins to lu_adjournment.ADJ_RSN_CODE",
+        "CHARGE_CODE": "Joins to lu_charges.CHARGE_CODE",
+        "DEC_CODE": "Joins to lu_court_decision.COURT_DEC_CODE",
+        "APPL_CODE": "Joins to lu_application.APPL_CODE",
+        "APPL_DEC_CODE": "Joins to lu_app_decision.APP_DEC_CODE",
+        "CUSTODY": "Joins to lu_custody_status.CUSTODY_CODE",
+        "CASE_TYPE": "Joins to lu_case_type.CASE_TYPE_CODE",
+        "CAL_TYPE": "Joins to lu_cal_type.CAL_TYPE_CODE",
+        "MOTION_TYPE": "Joins to lu_motion_type.MOTION_TYPE_CODE",
+        "BIA_DEC_CODE": "Joins to lu_bia_decision.BIA_DEC_CODE",
+        "SCHED_TYPE": "Joins to lu_schedule_type.SCHED_TYPE_CODE",
+    }
+
+    for col, hint in join_hints.items():
+        con.execute(
+            "UPDATE _columns SET join_hint = ? WHERE column_name = ?",
+            [hint, col],
+        )
+
+    # Populate example_value and null_pct for each column
+    rows = con.execute(
+        "SELECT table_name, column_name FROM _columns"
+    ).fetchall()
+
+    for table_name, column_name in rows:
+        # Example value
+        try:
+            result = con.execute(
+                f'SELECT CAST("{column_name}" AS VARCHAR) '
+                f'FROM "{table_name}" '
+                f'WHERE "{column_name}" IS NOT NULL LIMIT 1'
+            ).fetchone()
+            if result:
+                val = result[0]
+                if len(val) > 80:
+                    val = val[:77] + "..."
+                con.execute(
+                    "UPDATE _columns SET example_value = ? "
+                    "WHERE table_name = ? AND column_name = ?",
+                    [val, table_name, column_name],
+                )
+        except Exception:
+            pass
+
+        # Null percentage
+        try:
+            result = con.execute(
+                f'SELECT ROUND(100.0 * COUNT(*) FILTER (WHERE "{column_name}" IS NULL) '
+                f'/ COUNT(*), 1) FROM "{table_name}"'
+            ).fetchone()
+            if result and result[0] is not None:
+                con.execute(
+                    "UPDATE _columns SET null_pct = ? "
+                    "WHERE table_name = ? AND column_name = ?",
+                    [result[0], table_name, column_name],
+                )
+        except Exception:
+            pass
+
+
+def export_dictionary(con, output_path):
+    """Export _columns and _metadata as a readable DICTIONARY.md file."""
+    lines = []
+    lines.append("# Data Dictionary")
+    lines.append("")
+    lines.append("Source: [EOIR FOIA Library](https://www.justice.gov/eoir/foia-library-0)")
+    lines.append("")
+
+    tables = con.execute(
+        "SELECT DISTINCT table_name FROM _columns ORDER BY table_name"
+    ).fetchall()
+
+    for (table_name,) in tables:
+        # Get row count and source file from _metadata
+        meta = con.execute(
+            "SELECT row_count, source_file, description FROM _metadata WHERE table_name = ?",
+            [table_name],
+        ).fetchone()
+
+        lines.append(f"## {table_name}")
+        lines.append("")
+        if meta:
+            row_count, source_file, description = meta
+            if description:
+                lines.append(f"{description}")
+                lines.append("")
+            if source_file:
+                lines.append(f"Source file: `{source_file}`")
+            if row_count:
+                lines.append(f"Rows: {row_count:,}")
+            lines.append("")
+
+        lines.append("| Column | Type | Nulls | Example | Join |")
+        lines.append("|--------|------|-------|---------|------|")
+
+        cols = con.execute(
+            "SELECT column_name, data_type, null_pct, example_value, join_hint "
+            "FROM _columns WHERE table_name = ? ORDER BY rowid",
+            [table_name],
+        ).fetchall()
+
+        for col_name, dtype, null_pct, example, join_hint in cols:
+            null_str = f"{null_pct:.1f}%" if null_pct is not None else ""
+            example_str = example if example else ""
+            # Escape pipe characters in examples
+            example_str = example_str.replace("|", "\\|")
+            join_str = join_hint if join_hint else ""
+            lines.append(f"| {col_name} | {dtype} | {null_str} | {example_str} | {join_str} |")
+
+        lines.append("")
+
+    with open(output_path, "w") as f:
+        f.write("\n".join(lines))
+    print(f"  Exported to {output_path}")
+
+
+# ---------------------------------------------------------------------------
 # Main
 # ---------------------------------------------------------------------------
 
@@ -840,10 +992,10 @@ def main():
     # -----------------------------------------------------------------------
     if args.data_dir:
         base_dir = args.data_dir
-        print(f"\n[1/6] Using existing data directory: {base_dir}")
+        print(f"\n[1/8] Using existing data directory: {base_dir}")
     else:
         raw_dir = DEFAULT_RAW_DIR
-        print(f"\n[1/6] Download & extract")
+        print(f"\n[1/8] Download & extract")
 
         if args.zip:
             zip_path = args.zip
@@ -857,7 +1009,7 @@ def main():
     # -----------------------------------------------------------------------
     # Step 2: Discover files
     # -----------------------------------------------------------------------
-    print(f"\n[2/6] Discovering files")
+    print(f"\n[2/8] Discovering files")
     core_files, lookup_files = discover_files(base_dir)
     print(f"  Found {len(core_files)} core tables, {len(lookup_files)} lookup tables")
 
@@ -871,7 +1023,7 @@ def main():
     # -----------------------------------------------------------------------
     # Step 3: Open database and load lookup tables
     # -----------------------------------------------------------------------
-    print(f"\n[3/6] Loading lookup tables")
+    print(f"\n[3/8] Loading lookup tables")
     db_path = args.output
     con = duckdb.connect(str(db_path))
 
@@ -893,7 +1045,7 @@ def main():
     # -----------------------------------------------------------------------
     # Step 4: Load core tables (in build order)
     # -----------------------------------------------------------------------
-    print(f"\n[4/6] Loading core tables")
+    print(f"\n[4/8] Loading core tables")
 
     # Build ordered list: known order first, then any discovered extras
     ordered_core: list[tuple[str, Path]] = []
@@ -923,16 +1075,30 @@ def main():
     # -----------------------------------------------------------------------
     # Step 5: Create views
     # -----------------------------------------------------------------------
-    print(f"\n[5/6] Creating views")
+    print(f"\n[5/8] Creating views")
     created_views = create_views(con, built_tables)
 
     # -----------------------------------------------------------------------
     # Step 6: Metadata
     # -----------------------------------------------------------------------
-    print(f"\n[6/6] Building metadata")
+    print(f"\n[6/8] Building metadata")
     build_metadata(con, table_sources, set(lookup_files.keys()))
     meta_count = con.execute("SELECT COUNT(*) FROM _metadata").fetchone()[0]
     print(f"  {meta_count} tables cataloged in _metadata")
+
+    # -----------------------------------------------------------------------
+    # Step 7: Build _columns data dictionary
+    # -----------------------------------------------------------------------
+    print(f"\n[7/8] Building _columns data dictionary")
+    build_columns_table(con)
+    col_count = con.execute("SELECT COUNT(*) FROM _columns").fetchone()[0]
+    print(f"  {col_count} columns cataloged in _columns")
+
+    # -----------------------------------------------------------------------
+    # Step 8: Export DICTIONARY.md
+    # -----------------------------------------------------------------------
+    print(f"\n[8/8] Exporting DICTIONARY.md")
+    export_dictionary(con, db_path.parent / "DICTIONARY.md")
 
     # -----------------------------------------------------------------------
     # Done — sanity checks
