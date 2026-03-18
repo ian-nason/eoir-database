@@ -64,7 +64,7 @@ con.sql("SELECT * FROM eoir._metadata").show()
 ### From Google Colab
 
 ```python
-!pip install duckdb -q
+!pip install duckdb -q  # or: uv pip install duckdb
 import duckdb
 con = duckdb.connect()
 con.sql("INSTALL httpfs; LOAD httpfs;")
