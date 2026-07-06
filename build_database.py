@@ -300,7 +300,13 @@ def cast_expression(col: str) -> str:
             f'WHEN {quoted} = \'0\' THEN FALSE '
             f'ELSE NULL END AS {quoted}'
         )
-    return quoted
+    # VARCHAR: normalize FOIA-export artifacts. The raw CSVs pad codes with
+    # trailing spaces ('SP ' vs 'SP', '241a02Bi     ') and store literal NUL
+    # bytes as values; untreated, these become distinct categories and
+    # silently break every lookup join (July 2026 audit).
+    return (
+        f"NULLIF(TRIM(REPLACE({quoted}, chr(0), '')), '') AS {quoted}"
+    )
 
 
 # ---------------------------------------------------------------------------

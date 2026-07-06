@@ -30,13 +30,35 @@ FROM proceedings
 WHERE OSC_DATE IS NOT NULL
 GROUP BY 1 ORDER BY 1 DESC LIMIT 10;
 
--- Top nationalities in cases filed since 2020
-SELECT n.NAT_COUNTRY_NAME, COUNT(*) AS cases
-FROM cases c
+-- Top nationalities in proceedings filed since 2020
+-- (filing dates live on proceedings, not cases)
+SELECT n.NAT_COUNTRY_NAME, COUNT(*) AS proceedings
+FROM proceedings p
+JOIN cases c ON p.IDNCASE = c.IDNCASE
 JOIN lu_nationality n ON c.NAT = n.NAT_CODE
-WHERE c.INPUT_DATE >= '2020-01-01'
+WHERE p.OSC_DATE >= '2020-01-01'
 GROUP BY 1 ORDER BY 2 DESC LIMIT 10;
 ```
+
+## Researcher caveats
+
+- **`cases.C_BIRTHDATE` is 100% NULL** (redacted at source). No age-based
+  analysis is possible from this database.
+- **Code values are normalized** (trailing-space padding, blank strings, and
+  literal NUL bytes from the FOIA export are trimmed to proper NULLs as of the
+  July 2026 build). Earlier builds required `TRIM()` around every lookup join;
+  that is no longer necessary — but note that "no usable decision code" is
+  ~45% of proceedings once blanks are counted, not the ~32% raw NULL rate.
+- **Proceedings vs cases granularity:** 16.5M proceedings belong to 12.7M
+  cases; counting proceedings overcounts people ~1.3x. About 20% of
+  proceedings have no completion date (pending) — condition outcome rates on
+  completion.
+- **Dates:** scheduled-future hearing dates are legitimate; a small number of
+  impossible dates exist (a hearing in 2925, sentinels like 1900-01-01). Cap
+  to 1950-2035 before computing durations. Trend analyses are trustworthy
+  from roughly 1992 onward.
+- **`lu_court_decision` has duplicate (code, case_type) keys** — use the
+  shipped `v_proceedings_full` view, which dedupes, rather than a naive join.
 
 ## Remote access (no download required)
 
