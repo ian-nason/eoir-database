@@ -130,6 +130,9 @@ def main():
 
     print(f"Generating dataset card from {args.db}")
     card = generate_dataset_card(str(args.db))
+    changelog = Path(__file__).parent / "CHANGELOG.md"
+    if changelog.exists():
+        card += "\n\n" + changelog.read_text()
 
     print("Uploading dataset card...")
     api.upload_file(
