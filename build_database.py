@@ -29,6 +29,23 @@ import duckdb
 import requests
 from tqdm import tqdm
 
+
+def tune_session(con, db_path, memory_limit: str = "6GB", threads: int = 4) -> None:
+    """Bound DuckDB so a build cannot exhaust the (10 GB) WSL VM.
+
+    Override with DATAPOND_MEMORY_LIMIT / DATAPOND_THREADS. Spills go to
+    <db>.tmp next to the output file.
+    """
+    con.execute(f"SET memory_limit = '{os.environ.get('DATAPOND_MEMORY_LIMIT', memory_limit)}'")
+    con.execute(f"SET threads = {int(os.environ.get('DATAPOND_THREADS', threads))}")
+    con.execute(f"SET temp_directory = '{Path(db_path).resolve()}.tmp'")
+    con.execute("SET preserve_insertion_order = false")
+
+
+# Tables that had to be loaded without type casting (should be empty).
+FALLBACK_TABLES: list[str] = []
+ALLOW_UNTYPED_FALLBACK = False
+
 # ---------------------------------------------------------------------------
 # Constants
 # ---------------------------------------------------------------------------
@@ -562,7 +579,16 @@ def build_table(
         return row_count
     except Exception as e:
         print(f"    WARNING: Failed to build table {table_name}: {e}")
-        # Try without type casting as a fallback
+        if not ALLOW_UNTYPED_FALLBACK:
+            # An untyped load skips the VARCHAR normalization (trailing spaces,
+            # NUL bytes) that the July 2026 audit found breaks lookup joins, so
+            # it must never happen silently. Re-run with
+            # --allow-untyped-fallback to accept it for a specific table.
+            raise RuntimeError(
+                f"typed load failed for {table_name}: {e} "
+                f"(use --allow-untyped-fallback to load it untyped)"
+            ) from e
+        # Explicitly allowed: load untyped, but record it so sanity checks flag it.
         try:
             fallback_sql = (
                 f"CREATE OR REPLACE TABLE {table_name} AS "
@@ -570,7 +596,8 @@ def build_table(
             )
             con.execute(fallback_sql)
             row_count = con.execute(f"SELECT COUNT(*) FROM {table_name}").fetchone()[0]
-            print(f"    Loaded {table_name} without type casting (fallback)")
+            FALLBACK_TABLES.append(table_name)
+            print(f"    Loaded {table_name} WITHOUT type casting (fallback) -- values are not normalized")
             return row_count
         except Exception as e2:
             print(f"    ERROR: Could not load {table_name} at all: {e2}")
@@ -803,6 +830,61 @@ def run_sanity_checks(con: duckdb.DuckDBPyConnection, db_path: Path):
     size_mb = db_path.stat().st_size / (1024**2)
     print(f"\n  Database size:  {size_mb:,.0f} MB ({size_mb / 1024:.1f} GB)")
 
+    # ---- Regression guards from the July 2026 audit (audit/2026-07) ----
+    # These must hold on every rebuild; they return a failure count so main()
+    # can exit non-zero instead of publishing a broken file.
+    print("\n  Audit regression checks:")
+    failures = 0
+
+    def check(name, ok, detail=""):
+        nonlocal failures
+        print(f"    [{'PASS' if ok else 'FAIL'}] {name}" + (f"  ({detail})" if detail else ""))
+        if not ok:
+            failures += 1
+
+    try:
+        cov = con.execute("""
+            SELECT COUNT(*) FILTER (WHERE l.strCode IS NOT NULL) * 100.0 / COUNT(*)
+            FROM charges c LEFT JOIN lu_charges l ON c.CHARGE = l.strCode
+            WHERE c.CHARGE IS NOT NULL
+        """).fetchone()[0]
+        check("charge lookup coverage >= 99.9%", cov is not None and cov >= 99.9, f"{cov:.2f}%")
+    except Exception as e:
+        check("charge lookup coverage >= 99.9%", False, str(e)[:80])
+    try:
+        cov = con.execute("""
+            SELECT COUNT(*) FILTER (WHERE l.strCode IS NOT NULL) * 100.0 / COUNT(*)
+            FROM cases c LEFT JOIN lu_language l ON c.LANG = l.strCode
+            WHERE c.LANG IS NOT NULL
+        """).fetchone()[0]
+        check("cases.LANG lookup coverage >= 99%", cov is not None and cov >= 99.0, f"{cov:.2f}%")
+    except Exception as e:
+        check("cases.LANG lookup coverage >= 99%", False, str(e)[:80])
+    try:
+        n = con.execute(
+            "SELECT COUNT(*) FROM proceedings WHERE strpos(DEC_CODE, chr(0)) > 0"
+        ).fetchone()[0]
+        check("no NUL bytes in proceedings.DEC_CODE", n == 0, f"{n} rows")
+    except Exception as e:
+        check("no NUL bytes in proceedings.DEC_CODE", False, str(e)[:80])
+    try:
+        n = con.execute(
+            "SELECT COUNT(*) FROM charges WHERE CHARGE <> TRIM(CHARGE)"
+        ).fetchone()[0]
+        check("no padded values in charges.CHARGE", n == 0, f"{n} rows")
+    except Exception as e:
+        check("no padded values in charges.CHARGE", False, str(e)[:80])
+    check("no tables loaded without type casting", not FALLBACK_TABLES, ", ".join(FALLBACK_TABLES))
+    for tbl in ("cases", "proceedings", "charges", "schedule"):
+        try:
+            n = con.execute(f"SELECT COUNT(*) FROM {tbl}").fetchone()[0]
+            check(f"{tbl} is non-empty", n > 0, f"{n:,} rows")
+        except Exception as e:
+            check(f"{tbl} is non-empty", False, str(e)[:80])
+
+    print(f"\n  Audit checks: {failures} failure(s)")
+    return failures
+
 
 # ---------------------------------------------------------------------------
 # Data dictionary
@@ -985,7 +1067,15 @@ def main():
         default=Path(DEFAULT_OUTPUT),
         help=f"Output database path (default: {DEFAULT_OUTPUT})",
     )
+    parser.add_argument(
+        "--allow-untyped-fallback",
+        action="store_true",
+        help="If a typed load fails, load the table untyped instead of aborting "
+             "(values will not be normalized; sanity checks will flag it)",
+    )
     args = parser.parse_args()
+    global ALLOW_UNTYPED_FALLBACK
+    ALLOW_UNTYPED_FALLBACK = args.allow_untyped_fallback
 
     t_start = time.time()
 
@@ -1031,7 +1121,11 @@ def main():
     # -----------------------------------------------------------------------
     print(f"\n[3/8] Loading lookup tables")
     db_path = args.output
+    # Always start from an empty file: CREATE OR REPLACE into an existing
+    # database would keep tables that no longer exist in the new dump.
+    db_path.unlink(missing_ok=True)
     con = duckdb.connect(str(db_path))
+    tune_session(con, db_path, memory_limit="6GB")
 
     built_tables: set[str] = set()
     table_sources: dict[str, str] = {}
@@ -1109,7 +1203,7 @@ def main():
     # -----------------------------------------------------------------------
     # Done — sanity checks
     # -----------------------------------------------------------------------
-    run_sanity_checks(con, db_path)
+    failures = run_sanity_checks(con, db_path)
 
     con.close()
 
@@ -1118,6 +1212,9 @@ def main():
     seconds = int(elapsed_total % 60)
     print(f"\nDone in {minutes}m {seconds}s")
     print(f"Database: {db_path.resolve()}")
+    if failures:
+        print(f"\nBUILD FAILED: {failures} audit check(s) failed -- do not publish this file")
+        sys.exit(1)
 
 
 if __name__ == "__main__":

@@ -1,5 +1,24 @@
 # Changelog
 
+## 2026-09-14 — Data refresh (DOJ August 2026 file)
+
+- Rebuilt from the EOIR FOIA case-data file dated 2026-09-01 (the "August
+  2026" release). Total rows 169,184,982 → 173,278,686 across 97 tables
+  (+3 views); `cases` 12,821,375, `proceedings` 16,817,359, `charges`
+  19,176,677, `schedule` 48,049,351. Proceedings filed in 2026 to date:
+  426,758.
+- Value normalization (trim, strip NUL bytes, blank → NULL) is applied at
+  load, so charge-code and language lookups join at 100.00% without the
+  July in-place repair. The builder now **fails** instead of silently
+  loading a table untyped (`--allow-untyped-fallback` to override), always
+  starts from an empty file, and exits non-zero if any audit check fails
+  (lookup coverage, NUL bytes, padding, core tables non-empty).
+- DuckDB memory capped at 6 GB with 4 threads for the 10 GB build VM
+  (overridable via DATAPOND_MEMORY_LIMIT / DATAPOND_THREADS);
+  `publish_to_hf.py --card-only`.
+- Known caveats unchanged: a handful of upstream dates are in the future
+  (one proceeding dated 2029); cap dates to 1950-2035 in analysis.
+
 ## 2026-07-06 — Full refresh + data-quality audit
 
 Rebuilt from the latest DOJ EOIR FOIA release (proceedings through 2026) and
