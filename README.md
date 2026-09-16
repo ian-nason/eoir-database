@@ -264,14 +264,21 @@ uv run python examples/court_analysis.py --db eoir.duckdb --court NYV --months 2
 - **Zip extraction:** The EOIR zip file does not extract properly with some archive utilities. The build script uses Python's `zipfile` module and falls back to the `unzip` command if that fails.
 - **Data quality:** The raw CSVs contain null bytes, inconsistent quoting, and malformed rows. The `ignore_errors` and `null_padding` options in DuckDB's CSV reader handle most of these, but a small number of rows may be silently dropped.
 - **Column names:** Column names are preserved as-is from the source files (mixed case, inconsistent naming conventions). 
-- **Monthly updates:** EOIR updates the dump monthly. Re-running the build script will re-download and rebuild from scratch. The zip URL is stable.
+- **Monthly updates:** EOIR updates the dump monthly at a stable URL. Re-running the build re-downloads the zip whenever its ETag / Last-Modified / size differs from the copy on disk (recorded in `<zip>.meta.json`), discards the previous extraction, and rebuilds from scratch; `DATAPOND_REFRESH=skip` reuses the cached zip offline.
 - **Large tables:** The `schedule` table (~45M rows) and `representatives` table (~26M rows) take the longest. Total build time is typically ~5 minutes.
 
 ## Data validation
 
-33/35 automated checks pass (row counts, type casting, referential integrity, lookup coverage, view correctness, data freshness, end-to-end queries). The one noted item is a source data characteristic, not a build issue:
+Every build runs the checks in `build_database.py` (row counts, type casting, referential
+integrity, lookup coverage, view correctness, data freshness, end-to-end queries) and
+fails if any of them does; the numbers for the current file are in `VALIDATION.md`.
 
-- **Charge lookup coverage** is 76.5% — EOIR's `lu_charges` table only contains 252 of the 571 distinct charge codes in the data. Pattern-based queries (`CHARGE LIKE '%237%'`) work fine; only joins to `lu_charges` for descriptions are affected.
+- **Charge lookup coverage** is 99.997% (19,176,101 of 19,176,675 non-NULL charge rows
+  join to `lu_charges`) after the July 2026 normalisation of charge codes; the build
+  requires at least 99.9%.
+- **Coverage.** Proceedings carry `OSC_DATE`s from 1990 (925,750 rows dated 1990-1995)
+  and a handful of sentinel and future dates; the registry's `1990-2026` is the range of
+  plausible `OSC_DATE` values, not a guarantee that early years are complete.
 
 ## Coming soon
 

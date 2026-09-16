@@ -31,7 +31,9 @@ def generate_dataset_card(db_path: str) -> str:
     n_tables = len(metadata)
 
     return f"""---
-license: mit
+license: other
+license_name: public-domain
+license_link: https://www.justice.gov/eoir/foia-library
 task_categories:
   - tabular-classification
   - tabular-regression

@@ -26,6 +26,8 @@ from pathlib import Path
 from typing import Optional
 
 import duckdb
+import json
+import shutil
 import requests
 from tqdm import tqdm
 
@@ -355,29 +357,96 @@ def build_typed_select(columns: list[str]) -> str:
 # Download & extraction
 # ---------------------------------------------------------------------------
 
-def download_zip(dest_dir: Path) -> Path:
-    """Download the EOIR zip file with progress bar."""
+def _remote_identity(url: str) -> dict:
+    """ETag / Last-Modified / Content-Length of the remote file (HEAD); {} on failure."""
+    try:
+        r = requests.head(url, timeout=60, allow_redirects=True)
+        r.raise_for_status()
+    except requests.RequestException:
+        return {}
+    h = r.headers
+    out = {}
+    if h.get("etag"):
+        out["etag"] = h["etag"].strip('"').replace("W/", "")
+    if h.get("last-modified"):
+        out["last_modified"] = h["last-modified"]
+    if h.get("content-length"):
+        out["size"] = int(h["content-length"])
+    return out
+
+
+def _zip_meta_path(dest: Path) -> Path:
+    return dest.with_name(dest.name + ".meta.json")
+
+
+def zip_is_current(dest: Path) -> bool:
+    """True when the cached zip matches the remote file's identity recorded at download time.
+    A cached zip with no record, or one the server now reports differently, is stale."""
+    if not dest.exists():
+        return False
+    try:
+        local = json.loads(_zip_meta_path(dest).read_text())
+    except (OSError, ValueError):
+        return False
+    remote = _remote_identity(EOIR_ZIP_URL)
+    for key in ("etag", "last_modified", "size"):
+        if local.get(key) and remote.get(key):
+            return local[key] == remote[key]
+    return False
+
+
+def download_zip(dest_dir: Path, extract_dir: Path | None = None) -> Path:
+    """Download the EOIR zip unless the cached copy still matches the remote file.
+
+    Refresh vs resume: the cached zip is reused only when its recorded ETag /
+    Last-Modified / size equals what the server reports now (DATAPOND_REFRESH=skip
+    forces reuse of whatever is on disk, e.g. offline). A fresh download replaces the
+    zip atomically and removes the previously extracted Data/ and Lookup/ directories
+    so the build cannot mix an old extraction with a new zip.
+    """
     dest_dir.mkdir(parents=True, exist_ok=True)
     dest = dest_dir / ZIP_FILENAME
+    size_gb = dest.stat().st_size / (1024**3) if dest.exists() else 0
 
-    if dest.exists():
-        size_gb = dest.stat().st_size / (1024**3)
-        print(f"  Zip already exists: {dest} ({size_gb:.1f} GB), skipping download")
+    if dest.exists() and (os.environ.get("DATAPOND_REFRESH") == "skip" or zip_is_current(dest)):
+        print(f"  Zip already exists and matches the source: {dest} ({size_gb:.1f} GB), skipping download")
         return dest
+    if dest.exists():
+        print(f"  Cached zip ({size_gb:.1f} GB) differs from the source or has no download record; re-downloading")
 
     print(f"  Downloading from {EOIR_ZIP_URL}")
     print("  (This is ~4 GB, may take a while)")
 
-    resp = requests.get(EOIR_ZIP_URL, stream=True, timeout=60)
-    resp.raise_for_status()
+    part = dest.with_name(dest.name + ".part")
+    with requests.get(EOIR_ZIP_URL, stream=True, timeout=60) as resp:
+        resp.raise_for_status()
+        total = int(resp.headers.get("content-length", 0))
+        identity = {"url": EOIR_ZIP_URL}
+        if resp.headers.get("etag"):
+            identity["etag"] = resp.headers["etag"].strip('"').replace("W/", "")
+        if resp.headers.get("last-modified"):
+            identity["last_modified"] = resp.headers["last-modified"]
+        received = 0
+        with open(part, "wb") as f, tqdm(
+            total=total, unit="B", unit_scale=True, desc="  Downloading"
+        ) as pbar:
+            for chunk in resp.iter_content(chunk_size=1024 * 1024):
+                f.write(chunk)
+                received += len(chunk)
+                pbar.update(len(chunk))
+    if total and received != total:
+        part.unlink(missing_ok=True)
+        raise IOError(f"truncated download: {received}/{total} bytes")
+    identity["size"] = received
+    os.replace(part, dest)
+    _zip_meta_path(dest).write_text(json.dumps(identity, indent=1))
 
-    total = int(resp.headers.get("content-length", 0))
-    with open(dest, "wb") as f, tqdm(
-        total=total, unit="B", unit_scale=True, desc="  Downloading"
-    ) as pbar:
-        for chunk in resp.iter_content(chunk_size=1024 * 1024):
-            f.write(chunk)
-            pbar.update(len(chunk))
+    # a new zip invalidates any earlier extraction next to it
+    for sub in ("Data", "Lookup"):
+        old = find_subdir(extract_dir or dest_dir, sub)
+        if old:
+            print(f"  Removing previously extracted {old}")
+            shutil.rmtree(old, ignore_errors=True)
 
     size_gb = dest.stat().st_size / (1024**3)
     print(f"  Downloaded {size_gb:.1f} GB to {dest}")
@@ -1097,7 +1166,7 @@ def main():
             zip_path = args.zip
             print(f"  Using local zip: {zip_path}")
         else:
-            zip_path = download_zip(raw_dir)
+            zip_path = download_zip(raw_dir, extract_dir=raw_dir)
 
         base_dir = raw_dir
         extract_zip(zip_path, base_dir)
