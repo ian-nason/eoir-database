@@ -1,0 +1,20 @@
+[
+  {
+    "file": "EOIR Case Data 2026-1001/EOIR Case Data/A_TblCase.csv",
+    "columns": 39,
+    "accepted_unquoted_records": 12869483,
+    "excess_field_records": 110,
+    "invalid_utf8_records": 159,
+    "short_padded_records": 0,
+    "empty_lines": 0
+  },
+  {
+    "file": "EOIR Case Data 2026-1001/EOIR Case Data/A_TblCaseIdentifier.csv",
+    "columns": 3,
+    "accepted_unquoted_records": 2669113,
+    "excess_field_records": 1,
+    "invalid_utf8_records": 0,
+    "short_padded_records": 2,
+    "empty_lines": 93
+  }
+]

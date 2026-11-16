@@ -1,0 +1,15 @@
+{
+  "all_98_csv_members_hashed": true,
+  "source_record_reconciliation": "97 tables exactly match nonempty source record counts; cases differ only by the 159 independently identified invalid UTF-8 records skipped by the existing importer.",
+  "exceptions": [
+    {
+      "table": "cases",
+      "source_records": 12869752,
+      "stored_records": 12869593,
+      "skipped_invalid_utf8": 159,
+      "accepted_excess_field_records": 110
+    }
+  ],
+  "all_builder_checks_passed": true,
+  "untyped_fallback_tables": []
+}

@@ -7,24 +7,24 @@ Source: [EOIR FOIA Library](https://www.justice.gov/eoir/foia-library-0)
 Loaded from tblAppeal2.csv
 
 Source file: `tblAppeal2.csv`
-Rows: 1,272,470
+Rows: 1,283,643
 
 | Column | Type | Nulls | Example | Join |
 |--------|------|-------|---------|------|
-| idnProceeding | INTEGER | 9.9% | 9647327 |  |
-| idncase | INTEGER | 0.1% | 9675909 |  |
-| idnAppeal | INTEGER | 0.0% | 5363773 |  |
+| idnProceeding | INTEGER | 9.8% | 130236 |  |
+| idncase | INTEGER | 0.1% | 2068887 |  |
+| idnAppeal | INTEGER | 0.0% | 1 |  |
 
 ## appeal_fed_courts
 
 Loaded from tblAppealFedCourts.csv
 
 Source file: `tblAppealFedCourts.csv`
-Rows: 183,070
+Rows: 183,628
 
 | Column | Type | Nulls | Example | Join |
 |--------|------|-------|---------|------|
-| strFedCourtDecision | VARCHAR | 96.5% | REM |  |
+| strFedCourtDecision | VARCHAR | 96.6% | REM |  |
 | datRequestedByOIL | DATE | 3.2% | 2011-11-10 |  |
 | lngAppealID | VARCHAR | 5.4% | 4901311 |  |
 | idnAppealFedCourts | INTEGER | 0.0% | 1491870 |  |
@@ -34,192 +34,192 @@ Rows: 183,070
 Appeals to Board of Immigration Appeals
 
 Source file: `tblAppeal.csv`
-Rows: 1,569,505
+Rows: 1,585,540
 
 | Column | Type | Nulls | Example | Join |
 |--------|------|-------|---------|------|
 | strProbono | VARCHAR | 99.8% | Y |  |
-| strCustody | VARCHAR | 15.7% | R |  |
-| strProceedingIHP | VARCHAR | 98.0% | * |  |
-| strNat | VARCHAR | 8.6% | GT |  |
-| strLang | VARCHAR | 8.7% | SP |  |
+| strCustody | VARCHAR | 15.5% | R |  |
+| strProceedingIHP | VARCHAR | 98.0% | S |  |
+| strNat | VARCHAR | 8.5% | MX |  |
+| strLang | VARCHAR | 8.7% | ENG |  |
 | strCaseType | VARCHAR | 2.9% | RMV |  |
-| strBIADecisionType | VARCHAR | 20.0% | R |  |
-| strBIADecision | VARCHAR | 18.5% | SED |  |
-| datBIADecision | DATE | 18.5% | 2024-08-05 |  |
-| datAttorneyE27 | DATE | 30.3% | 2024-03-07 |  |
+| strBIADecisionType | VARCHAR | 20.6% | R |  |
+| strBIADecision | VARCHAR | 19.0% | MBD |  |
+| datBIADecision | DATE | 19.0% | 2018-08-09 |  |
+| datAttorneyE27 | DATE | 30.2% | 2018-03-16 |  |
 | strFiledBy | VARCHAR | 0.0% | A |  |
-| datAppealFiled | DATE | 0.0% | 2024-03-07 |  |
-| strAppealType | VARCHAR | 0.0% | Case Appeal |  |
+| datAppealFiled | DATE | 0.0% | 2018-03-15 |  |
+| strAppealType | VARCHAR | 0.0% | Bond Appeal |  |
 | strAppealCategory | VARCHAR | 0.0% | IJ |  |
-| idnProceeding | INTEGER | 8.5% | 13785982 |  |
-| idncase | INTEGER | 0.1% | 13216869 |  |
-| idnAppeal | INTEGER | 0.0% | 5476563 |  |
+| idnProceeding | INTEGER | 8.5% | 7816197 |  |
+| idncase | INTEGER | 0.1% | 8310833 |  |
+| idnAppeal | INTEGER | 0.0% | 5173725 |  |
 
 ## applications
 
 Applications for relief (asylum, cancellation, etc.)
 
 Source file: `tbl_Court_Appln.csv`
-Rows: 16,370,148
+Rows: 16,460,394
 
 | Column | Type | Nulls | Example | Join |
 |--------|------|-------|---------|------|
-| APPL_DEC | VARCHAR | 36.3% | O |  |
-| APPL_RECD_DATE | DATE | 0.0% | 1995-08-01 |  |
+| APPL_DEC | VARCHAR | 35.8% | D |  |
+| APPL_RECD_DATE | DATE | 0.0% | 1989-08-31 |  |
 | APPL_CODE | VARCHAR | 0.0% | ASYL | Joins to lu_application.APPL_CODE |
-| IDNCASE | INTEGER | 0.0% | 3391035 | Primary case ID, joins across all core tables |
-| IDNPROCEEDING | INTEGER | 0.0% | 1770272 | Proceeding ID, joins proceedings to charges, schedule, motions |
-| IDNPROCEEDINGAPPLN | INTEGER | 0.0% | 441503 |  |
+| IDNCASE | INTEGER | 0.0% | 2427262 | Primary case ID, joins across all core tables |
+| IDNPROCEEDING | INTEGER | 0.0% | 597160 | Proceeding ID, joins proceedings to charges, schedule, motions |
+| IDNPROCEEDINGAPPLN | INTEGER | 0.0% | 112039 |  |
 
 ## attorneys
 
 Attorney registry
 
 Source file: `tbl_EOIR_Attorney.csv`
-Rows: 410,696
+Rows: 411,877
 
 | Column | Type | Nulls | Example | Join |
 |--------|------|-------|---------|------|
-| datModifiedOn | DATE | 0.0% | 1996-07-01 |  |
-| datCreatedOn | DATE | 0.0% | 1996-07-01 |  |
-| Source_Flag | VARCHAR | 0.0% | Appeal |  |
-| blnAttorneyActive | BOOLEAN | 0.0% | true |  |
-| BaseCityCode | VARCHAR | 33.7% | CHI |  |
-| OldAttorneyID | VARCHAR | 37.2% | 10552 |  |
-| EOIRAttorneyID | VARCHAR | 0.0% | 31C66480-3683-E211-AC6D-F4CE46838609 |  |
+| datModifiedOn | DATE | 0.0% | 2024-03-19 |  |
+| datCreatedOn | DATE | 0.0% | 2022-08-26 |  |
+| Source_Flag | VARCHAR | 0.0% | eReg |  |
+| blnAttorneyActive | BOOLEAN | 0.0% | false |  |
+| BaseCityCode | VARCHAR | 33.9% | BIA |  |
+| OldAttorneyID | VARCHAR | 37.3% | 8801 |  |
+| EOIRAttorneyID | VARCHAR | 0.0% | D10A1B8A-732F-44AF-A801-0000371C7F67 |  |
 
 ## bonds
 
 Bond hearing records and amounts
 
 Source file: `D_TblAssociatedBond.csv`
-Rows: 1,643,732
+Rows: 1,654,849
 
 | Column | Type | Nulls | Example | Join |
 |--------|------|-------|---------|------|
-| DECISION_DUE_DATE | DATE | 99.7% | 2009-01-26 |  |
-| FILING_PARTY | VARCHAR | 26.6% | A |  |
-| FILING_METHOD | VARCHAR | 28.7% | W |  |
-| BOND_TYPE | VARCHAR | 4.7% | BB |  |
-| E_28_DATE | DATE | 89.7% | 1997-08-21 |  |
-| DATE_APPEAL_DUE | DATE | 8.0% | 1999-01-28 |  |
+| DECISION_DUE_DATE | DATE | 99.7% | 2005-02-24 |  |
+| FILING_PARTY | VARCHAR | 26.4% | BD |  |
+| FILING_METHOD | VARCHAR | 28.5% | BD |  |
+| BOND_TYPE | VARCHAR | 4.6% | BD |  |
+| E_28_DATE | DATE | 89.8% | 2001-01-04 |  |
+| DATE_APPEAL_DUE | DATE | 8.0% | 1999-03-25 |  |
 | APPEAL_NOT_FILED | VARCHAR | 99.0% | X |  |
-| APPEAL_REVD | VARCHAR | 76.1% | A |  |
-| NEW_BOND | DOUBLE | 52.9% | 2000.0 |  |
-| BOND_HEAR_REQ_DATE | DATE | 0.0% | 1992-02-19 |  |
+| APPEAL_REVD | VARCHAR | 75.8% | A |  |
+| NEW_BOND | DOUBLE | 52.5% | 10000.0 |  |
+| BOND_HEAR_REQ_DATE | DATE | 0.0% | 2000-12-20 |  |
 | BOND_HEARING_TELEPHONIC | VARCHAR | 91.9% | P |  |
-| INS_TA | VARCHAR | 79.1% | MAR |  |
-| REL_CON | VARCHAR | 89.6% | Y |  |
-| INITIAL_BOND | DOUBLE | 83.4% | 5000.0 |  |
-| COMP_DATE | DATE | 0.4% | 1992-02-19 |  |
+| INS_TA | VARCHAR | 79.3% | BAC |  |
+| REL_CON | VARCHAR | 89.6% | N |  |
+| INITIAL_BOND | DOUBLE | 83.5% | 4500.0 |  |
+| COMP_DATE | DATE | 0.4% | 2001-01-26 |  |
 | DEC | VARCHAR | 0.4% | C |  |
-| IJ_CODE | VARCHAR | 8.5% | RCP | Joins to lu_judge.JUDGE_CODE |
-| HEARING_LOC_CODE | VARCHAR | 0.0% | SPD | Joins to lu_hearing_location.LOC_CODE |
-| BASE_CITY_NAME | VARCHAR | 53.8% | LOS ANGELES |  |
-| BASE_CITY_CODE | VARCHAR | 0.0% | WLA | Joins to lu_base_city.BASE_CITY_CODE |
-| INPUT_TIME | VARCHAR | 0.0% | 0943 |  |
-| INPUT_DATE | DATE | 0.0% | 1992-02-19 |  |
+| IJ_CODE | VARCHAR | 8.5% | GMR | Joins to lu_judge.JUDGE_CODE |
+| HEARING_LOC_CODE | VARCHAR | 0.0% | ATD | Joins to lu_hearing_location.LOC_CODE |
+| BASE_CITY_NAME | VARCHAR | 54.1% | ATLANTA |  |
+| BASE_CITY_CODE | VARCHAR | 0.0% | ATD | Joins to lu_base_city.BASE_CITY_CODE |
+| INPUT_TIME | VARCHAR | 0.0% | 1140 |  |
+| INPUT_DATE | DATE | 0.0% | 2001-01-04 |  |
 | UPDATE_TIME | VARCHAR | 0.0% | 0002 |  |
-| UPDATE_DATE | DATE | 0.0% | 2016-05-21 |  |
+| UPDATE_DATE | DATE | 0.0% | 2019-10-11 |  |
 | SUB_GENERATION | VARCHAR | 0.0% | 99 |  |
 | GENERATION | VARCHAR | 0.0% | 99 |  |
 | REC_TYPE | VARCHAR | 0.0% | B |  |
-| OSC_DATE | DATE | 6.9% | 1992-02-13 |  |
-| IDNCASE | INTEGER | 0.0% | 6151219 | Primary case ID, joins across all core tables |
-| IDNPROCEEDING | INTEGER | 0.0% | 978712 | Proceeding ID, joins proceedings to charges, schedule, motions |
-| IDNASSOCBOND | INTEGER | 0.0% | 101932 |  |
+| OSC_DATE | DATE | 7.0% | 1900-01-01 |  |
+| IDNCASE | INTEGER | 0.0% | 2047244 | Primary case ID, joins across all core tables |
+| IDNPROCEEDING | INTEGER | 0.0% | 5 | Proceeding ID, joins proceedings to charges, schedule, motions |
+| IDNASSOCBOND | INTEGER | 0.0% | 2 |  |
 
 ## case_identifiers
 
 Case ID cross-references
 
 Source file: `A_TblCaseIdentifier.csv`
-Rows: 2,633,378
+Rows: 2,669,114
 
 | Column | Type | Nulls | Example | Join |
 |--------|------|-------|---------|------|
-| CASE_ID | VARCHAR | 0.0% | CF |  |
-| IDNCASE | INTEGER | 0.0% | 10412039 | Primary case ID, joins across all core tables |
-| IDNCASEID | INTEGER | 0.0% | 1671402 |  |
+| CASE_ID | VARCHAR | 0.0% | SR |  |
+| IDNCASE | INTEGER | 0.0% | 5716149 | Primary case ID, joins across all core tables |
+| IDNCASEID | INTEGER | 0.0% | 198607 |  |
 
 ## case_priority_history
 
 Priority code changes
 
 Source file: `tbl_CasePriorityHistory.csv`
-Rows: 151,124
+Rows: 151,250
 
 | Column | Type | Nulls | Example | Join |
 |--------|------|-------|---------|------|
-| DATMODIFIEDON | DATE | 0.0% | 2023-02-01 |  |
-| DATCREATEDON | DATE | 0.0% | 2023-02-01 |  |
-| idnCase | INTEGER | 0.0% | 11391021 |  |
+| DATMODIFIEDON | DATE | 0.0% | 2014-08-06 |  |
+| DATCREATEDON | DATE | 0.0% | 2014-08-06 |  |
+| idnCase | INTEGER | 0.0% | 7482576 |  |
 | casePriority_code | VARCHAR | 0.0% | N/A |  |
-| idnCasePriHistory | INTEGER | 0.0% | 285527 |  |
+| idnCasePriHistory | INTEGER | 0.0% | 103 |  |
 
 ## cases
 
 Case-level demographics, custody, dates, attorney info
 
 Source file: `A_TblCase.csv`
-Rows: 12,821,375
+Rows: 12,869,593
 
 | Column | Type | Nulls | Example | Join |
 |--------|------|-------|---------|------|
 | CASEPRIORITY_CODE | VARCHAR | 0.0% | N/A |  |
 | DETENTION_FACILITY_TYPE | VARCHAR | 100.0% | M |  |
-| DCO_LOCATION | VARCHAR | 100.0% | PRAIRIELAND , TEXAS |  |
+| DCO_LOCATION | VARCHAR | 100.0% | Eloy Arizona |  |
 | DETENTION_LOCATION | VARCHAR | 100.0% | VIC- CORRECTIONAL INSTITUTION |  |
 | DETENTION_DATE | DATE | 100.0% |  |  |
-| LPR | BOOLEAN | 91.8% | false |  |
-| DATE_RELEASED | DATE | 92.4% | 2013-05-03 |  |
-| DATE_DETAINED | DATE | 81.2% | 2026-06-26 |  |
-| Sex | VARCHAR | 45.0% | F |  |
+| LPR | BOOLEAN | 91.7% | false |  |
+| DATE_RELEASED | DATE | 92.4% | 2005-05-11 |  |
+| DATE_DETAINED | DATE | 81.1% | 2024-06-24 |  |
+| Sex | VARCHAR | 44.9% | M |  |
 | ZBOND_MRG_FLAG | VARCHAR | 100.0% | Y |  |
-| ADDRESS_CHANGEDON | DATE | 62.2% | 2025-02-27 |  |
-| UPDATED_STATE | VARCHAR | 99.9% | CA |  |
-| C_RELEASE_DATE | DATE | 99.2% | 2027-04-28 |  |
+| ADDRESS_CHANGEDON | DATE | 61.9% | 2024-10-16 |  |
+| UPDATED_STATE | VARCHAR | 99.9% | FL |  |
+| C_RELEASE_DATE | DATE | 99.2% | 2009-08-14 |  |
 | C_BIRTHDATE | DATE | 100.0% | 2024-05-31 |  |
-| C_ASY_TYPE | VARCHAR | 60.0% | E |  |
-| DATE_OF_ENTRY | DATE | 38.5% | 2023-08-08 |  |
-| INMATE_HOUSING | VARCHAR | 98.1% | MV |  |
+| C_ASY_TYPE | VARCHAR | 59.9% | I |  |
+| DATE_OF_ENTRY | DATE | 38.7% | 2019-08-18 |  |
+| INMATE_HOUSING | VARCHAR | 98.1% | LIV |  |
 | RELEASE_YEAR | VARCHAR | 79.1% | 0000 |  |
 | RELEASE_MONTH | VARCHAR | 79.1% | 00 |  |
-| CORRECTIONAL_FAC | VARCHAR | 97.8% | F |  |
-| UP_BOND_RSN | VARCHAR | 100.0% | 16 |  |
-| UP_BOND_DATE | DATE | 100.0% | 1997-03-21 |  |
-| LATEST_CAL_TYPE | VARCHAR | 19.7% | M |  |
-| LATEST_TIME | VARCHAR | 19.1% | 1330 |  |
-| LATEST_HEARING | DATE | 19.1% | 2026-09-23 |  |
-| UPDATE_SITE | VARCHAR | 1.0% | BLM |  |
-| CASE_TYPE | VARCHAR | 0.0% | RMV | Joins to lu_case_type.CASE_TYPE_CODE |
-| ATTY_NBR | VARCHAR | 39.2% | 0 |  |
-| E_28_DATE | DATE | 58.7% | 2026-07-09 |  |
-| SITE_TYPE | VARCHAR | 50.8% | M |  |
-| CUSTODY | VARCHAR | 1.0% | N | Joins to lu_custody_status.CUSTODY_CODE |
+| CORRECTIONAL_FAC | VARCHAR | 97.8% | S |  |
+| UP_BOND_RSN | VARCHAR | 100.0% | 09 |  |
+| UP_BOND_DATE | DATE | 100.0% | 1999-09-09 |  |
+| LATEST_CAL_TYPE | VARCHAR | 19.9% | M |  |
+| LATEST_TIME | VARCHAR | 19.4% | 0830 |  |
+| LATEST_HEARING | DATE | 19.4% | 2024-07-24 |  |
+| UPDATE_SITE | VARCHAR | 1.0% | SDC |  |
+| CASE_TYPE | VARCHAR | 0.0% | CFR | Joins to lu_case_type.CASE_TYPE_CODE |
+| ATTY_NBR | VARCHAR | 39.0% | 0 |  |
+| E_28_DATE | DATE | 58.4% | 2025-04-04 |  |
+| SITE_TYPE | VARCHAR | 50.6% | M |  |
+| CUSTODY | VARCHAR | 1.0% | D | Joins to lu_custody_status.CUSTODY_CODE |
 | LANG | VARCHAR | 1.2% | SP | Joins to lu_language.LANG_CODE |
-| NAT | VARCHAR | 1.0% | EC | Joins to lu_nationality.NAT_CODE |
-| UPDATED_CITY | VARCHAR | 99.9% | SANTA ANA |  |
-| UPDATED_ZIPCODE | VARCHAR | 99.9% | 92701 |  |
-| ALIEN_ZIPCODE | VARCHAR | 1.5% | 55411 |  |
-| ALIEN_STATE | VARCHAR | 3.0% | MN |  |
-| ALIEN_CITY | VARCHAR | 3.0% | Minneapolis |  |
-| IDNCASE | INTEGER | 0.0% | 14869192 | Primary case ID, joins across all core tables |
+| NAT | VARCHAR | 1.0% | BL | Joins to lu_nationality.NAT_CODE |
+| UPDATED_CITY | VARCHAR | 99.9% | MIAMI |  |
+| UPDATED_ZIPCODE | VARCHAR | 99.9% | 33194 |  |
+| ALIEN_ZIPCODE | VARCHAR | 1.5% | 31537 |  |
+| ALIEN_STATE | VARCHAR | 3.0% | GA |  |
+| ALIEN_CITY | VARCHAR | 3.0% | Folkston |  |
+| IDNCASE | INTEGER | 0.0% | 14258892 | Primary case ID, joins across all core tables |
 
 ## charges
 
 Individual charges per proceeding
 
 Source file: `B_TblProceedCharges.csv`
-Rows: 19,176,677
+Rows: 19,270,794
 
 | Column | Type | Nulls | Example | Join |
 |--------|------|-------|---------|------|
-| CHG_STATUS | VARCHAR | 16.6% | O |  |
+| CHG_STATUS | VARCHAR | 16.1% | O |  |
 | CHARGE | VARCHAR | 0.0% | 212a20 |  |
 | IDNPROCEEDING | INTEGER | 0.0% | 1 | Proceeding ID, joins proceedings to charges, schedule, motions |
-| IDNCASE | INTEGER | 0.0% | 2048276 | Primary case ID, joins across all core tables |
+| IDNCASE | INTEGER | 0.0% | 2047228 | Primary case ID, joins across all core tables |
 | IDNPRCDCHG | INTEGER | 0.0% | 1 |  |
 
 ## custody_history
@@ -227,26 +227,40 @@ Rows: 19,176,677
 Custody status change records
 
 Source file: `tbl_CustodyHistory.csv`
-Rows: 10,219,825
+Rows: 10,279,713
 
 | Column | Type | Nulls | Example | Join |
 |--------|------|-------|---------|------|
 | DATRELEASED | DATE | 89.7% | 2003-11-06 |  |
 | DATDETAINED | DATE | 77.6% | 2003-08-19 |  |
 | CUSTODY | VARCHAR | 0.0% | N | Joins to lu_custody_status.CUSTODY_CODE |
-| IDNCASE | INTEGER | 0.0% | 5830157 | Primary case ID, joins across all core tables |
+| IDNCASE | INTEGER | 0.0% | 2433318 | Primary case ID, joins across all core tables |
 | IDNCUSTODY | INTEGER | 0.0% | 29 |  |
+
+## eoirdb_schema
+
+Loaded from EOIRDB_Schema.csv
+
+Source file: `EOIRDB_Schema.csv`
+Rows: 1,051
+
+| Column | Type | Nulls | Example | Join |
+|--------|------|-------|---------|------|
+| Constraints  (PK/NULL) | VARCHAR | 0.0% | NO |  |
+| name | VARCHAR | 0.0% | int |  |
+| field_name | VARCHAR | 0.0% | IDNCASE |  |
+| table_name | VARCHAR | 0.0% | A_TblCase |  |
 
 ## juvenile_history
 
 Juvenile designation records
 
 Source file: `tbl_JuvenileHistory.csv`
-Rows: 3,176,275
+Rows: 3,183,371
 
 | Column | Type | Nulls | Example | Join |
 |--------|------|-------|---------|------|
-| DATMODIFIEDON | DATE | 62.4% | 2018-05-17 |  |
+| DATMODIFIEDON | DATE | 62.3% | 2014-09-08 |  |
 | DATCREATEDON | DATE | 1.2% | 2014-09-06 |  |
 | idnJuvenile | INTEGER | 0.0% | 1 |  |
 | idnProceeding | INTEGER | 0.0% | 3200129 |  |
@@ -258,21 +272,21 @@ Rows: 3,176,275
 Lead/rider case relationships
 
 Source file: `tbl_Lead_Rider.csv`
-Rows: 2,667,982
+Rows: 2,678,697
 
 | Column | Type | Nulls | Example | Join |
 |--------|------|-------|---------|------|
 | blnActive | BOOLEAN | 0.0% | true |  |
-| idnRiderProceedingEnd | INTEGER | 88.3% | 2732731 |  |
-| idnRiderProceedingStart | INTEGER | 0.0% | 2731406 |  |
-| idnLeadProceedingEnd | INTEGER | 88.3% | 2732737 |  |
-| idnLeadProceedingStart | INTEGER | 0.0% | 7856674 |  |
-| datSeveredOn | DATE | 88.3% | 2016-10-07 |  |
+| idnRiderProceedingEnd | INTEGER | 88.1% | 113050 |  |
+| idnRiderProceedingStart | INTEGER | 0.0% | 3200072 |  |
+| idnLeadProceedingEnd | INTEGER | 88.1% | 1169257 |  |
+| idnLeadProceedingStart | INTEGER | 0.0% | 3200073 |  |
+| datSeveredOn | DATE | 88.1% | 2011-02-03 |  |
 | datModifiedOn | DATE | 0.0% | 2011-01-15 |  |
 | datCreatedOn | DATE | 0.0% | 2011-01-15 |  |
-| idnRiderCase | INTEGER | 0.0% | 8337174 |  |
-| idnLeadCase | INTEGER | 0.0% | 4211013 |  |
-| idnLeadRider | INTEGER | 0.0% | 86478 |  |
+| idnRiderCase | INTEGER | 0.0% | 2046938 |  |
+| idnLeadCase | INTEGER | 0.0% | 2046939 |  |
+| idnLeadRider | INTEGER | 0.0% | 1 |  |
 
 ## lu_3_mbr_referred_reason
 
@@ -545,13 +559,13 @@ Rows: 97
 Loaded from tblLookupBIA.csv
 
 Source file: `tblLookupBIA.csv`
-Rows: 878
+Rows: 895
 
 | Column | Type | Nulls | Example | Join |
 |--------|------|-------|---------|------|
 | blnSLStatus | BOOLEAN | 0.0% | true |  |
-| strPanel | VARCHAR | 11.3% | 0 |  |
-| strTeam | VARCHAR | 8.4% | w |  |
+| strPanel | VARCHAR | 11.4% | 0 |  |
+| strTeam | VARCHAR | 8.3% | w |  |
 | datModifiedOn | DATE | 0.1% | 2021-10-02 |  |
 | datCreatedOn | DATE | 0.0% | 2019-06-20 |  |
 | blnActive | BOOLEAN | 0.0% | false |  |
@@ -580,7 +594,7 @@ Rows: 55
 Loaded from tblLookup_BIACluster.csv
 
 Source file: `tblLookup_BIACluster.csv`
-Rows: 243
+Rows: 244
 
 | Column | Type | Nulls | Example | Join |
 |--------|------|-------|---------|------|
@@ -589,7 +603,7 @@ Rows: 243
 | idnBaseCity | INTEGER | 0.0% | 75 |  |
 | Cluster_Subgroup | VARCHAR | 100.0% |  |  |
 | Cluster_Name | VARCHAR | 0.0% | Cluster 3 |  |
-| Region_Name | VARCHAR | 65.8% | WEST |  |
+| Region_Name | VARCHAR | 66.0% | WEST |  |
 | Report_Classification | VARCHAR | 0.0% | MOTIONS |  |
 | idnLookupCluster | INTEGER | 0.0% | 906 |  |
 
@@ -1080,7 +1094,7 @@ Rows: 4
 Hearing location codes
 
 Source file: `tblLookupHloc.csv`
-Rows: 1,373
+Rows: 1,381
 
 | Column | Type | Nulls | Example | Join |
 |--------|------|-------|---------|------|
@@ -1097,9 +1111,9 @@ Rows: 1,373
 | ROPLoc | VARCHAR | 0.0% | TAC |  |
 | blnActive | BOOLEAN | 0.0% | true |  |
 | datModifiedOn | DATE | 0.0% | 2025-01-16 |  |
-| datCreatedOn | DATE | 19.7% | 2024-11-07 |  |
+| datCreatedOn | DATE | 19.6% | 2024-11-07 |  |
 | Hear_Active_Flg | VARCHAR | 0.0% | Y |  |
-| Hear_Det_Type | VARCHAR | 77.6% | F |  |
+| Hear_Det_Type | VARCHAR | 77.7% | F |  |
 | Hear_Trans_COV_City | VARCHAR | 0.7% | CAF |  |
 | Hear_Admin_Hear_Loc | VARCHAR | 0.0% | TAC |  |
 | HEARING_BASE_CITY | VARCHAR | 0.0% | TAC |  |
@@ -1317,15 +1331,15 @@ Rows: 74
 Loaded from tblLookupINSTA.csv
 
 Source file: `tblLookupINSTA.csv`
-Rows: 9,611
+Rows: 9,671
 
 | Column | Type | Nulls | Example | Join |
 |--------|------|-------|---------|------|
 | blnActive | BOOLEAN | 0.0% | true |  |
-| datModifiedOn | DATE | 1.2% | 2013-05-11 |  |
-| datCreatedOn | DATE | 0.0% | 2007-10-24 |  |
+| datModifiedOn | DATE | 1.2% | 2026-09-09 |  |
+| datCreatedOn | DATE | 0.0% | 2026-09-09 |  |
 | INSTA_BASE | VARCHAR | 0.0% | ADL |  |
-| ID | VARCHAR | 0.0% | 4321 |  |
+| ID | VARCHAR | 0.0% | 12303 |  |
 
 ## lu_intr_pr_lang
 
@@ -1348,7 +1362,7 @@ Rows: 14
 Immigration judge codes
 
 Source file: `tblLookupJudge.csv`
-Rows: 1,785
+Rows: 1,840
 
 | Column | Type | Nulls | Example | Join |
 |--------|------|-------|---------|------|
@@ -1359,7 +1373,7 @@ Rows: 1,785
 | blnLastOnWheel | BOOLEAN | 0.0% | false |  |
 | blnSkippedOnWheel | BOOLEAN | 0.0% | true |  |
 | blnActive | BOOLEAN | 0.0% | false |  |
-| datModifiedOn | DATE | 10.6% | 2011-02-10 |  |
+| datModifiedOn | DATE | 10.3% | 2011-02-10 |  |
 | datCreatedOn | DATE | 0.0% | 2003-08-10 |  |
 | JUDGE_PHONE_NO | VARCHAR | 100.0% |  |  |
 | JUDGE_ZIP_2 | VARCHAR | 100.0% |  |  |
@@ -1376,7 +1390,7 @@ Rows: 1,785
 Loaded from tblLookupJudgeBaseCity.csv
 
 Source file: `tblLookupJudgeBaseCity.csv`
-Rows: 12,565
+Rows: 12,777
 
 | Column | Type | Nulls | Example | Join |
 |--------|------|-------|---------|------|
@@ -1394,15 +1408,15 @@ Rows: 12,565
 | JULOC4 | VARCHAR | 100.0% | WIS |  |
 | JULOC3 | VARCHAR | 99.8% | LGD |  |
 | JULOC2 | VARCHAR | 99.7% | WAD |  |
-| JULOC | VARCHAR | 98.0% | WAS |  |
-| JUTIME | VARCHAR | 89.4% | 1108 |  |
-| JUDATE | VARCHAR | 89.4% | 1999-12-01 00:00:00.000 |  |
-| JUBOOKFACT | VARCHAR | 88.6% | 02 |  |
-| JUDGE_PHONE_NO | VARCHAR | 88.6% | 6714727528 |  |
-| JUDGE_ZIP | VARCHAR | 88.5% | 969100000 |  |
-| JUDGE_STATE | VARCHAR | 88.5% | GU |  |
-| JUDGE_CITY | VARCHAR | 87.9% | UNK |  |
-| JUDGE_ST_ADDRESS | VARCHAR | 87.8% | UNK |  |
+| JULOC | VARCHAR | 98.1% | WAS |  |
+| JUTIME | VARCHAR | 89.6% | 1108 |  |
+| JUDATE | VARCHAR | 89.5% | 1999-12-01 00:00:00.000 |  |
+| JUBOOKFACT | VARCHAR | 88.7% | 02 |  |
+| JUDGE_PHONE_NO | VARCHAR | 88.8% | 6714727528 |  |
+| JUDGE_ZIP | VARCHAR | 88.7% | 969100000 |  |
+| JUDGE_STATE | VARCHAR | 88.7% | GU |  |
+| JUDGE_CITY | VARCHAR | 88.1% | UNK |  |
+| JUDGE_ST_ADDRESS | VARCHAR | 88.0% | UNK |  |
 | JUDGE_NAME | VARCHAR | 0.0% | KHAN, AMIENA A. |  |
 | JUDGE_CODE | VARCHAR | 0.0% | AAK |  |
 | BASE_CITY_CODE | VARCHAR | 0.0% | ADL | Joins to lu_base_city.BASE_CITY_CODE |
@@ -1759,127 +1773,127 @@ Rows: 7
 Motions filed in proceedings
 
 Source file: `tbl_Court_Motions.csv`
-Rows: 9,025,261
+Rows: 9,178,220
 
 | Column | Type | Nulls | Example | Join |
 |--------|------|-------|---------|------|
 | column42 | VARCHAR | 100.0% | A.2.a |  |
-| column41 | VARCHAR | 99.4% | 2005-01-27 14:26:00.000 |  |
+| column41 | VARCHAR | 99.4% | 2007-03-08 20:01:00.000 |  |
 | strDJScenario | VARCHAR | 0.0% | 0 |  |
 | BLNDELETED_Remove | BOOLEAN | 100.0% |  |  |
-| SCHEDULED_HEAR_LOC_Remove | VARCHAR | 97.8% | KRO |  |
+| SCHEDULED_HEAR_LOC_Remove | VARCHAR | 97.8% | WAS |  |
 | O_CLOCK_OPTION | VARCHAR | 99.0% | S |  |
-| E_28_DATE | DATE | 98.9% | 1999-02-16 |  |
+| E_28_DATE | DATE | 99.0% | 1988-12-02 |  |
 | E_28_RECPTFLAG_Remove | VARCHAR | 100.0% |  |  |
-| STRCERTOFSERVICECODE | VARCHAR | 14.2% | P |  |
-| STRFILINGMETHOD | VARCHAR | 4.8% | W |  |
-| STRFILINGPARTY | VARCHAR | 3.0% | 0000000000 |  |
+| STRCERTOFSERVICECODE | VARCHAR | 14.0% | C |  |
+| STRFILINGMETHOD | VARCHAR | 4.7% | W |  |
+| STRFILINGPARTY | VARCHAR | 2.9% | 0000000000 |  |
 | DATE_TO_BIA_UPDATE_Remove | DATE | 100.0% |  |  |
-| DATE_RECD_FROM_BIA | DATE | 100.0% | 1992-04-28 |  |
-| DATE_MAILED_TO_IJ | DATE | 100.0% | 1992-06-03 |  |
-| DECISION_RENDERED_Remove | VARCHAR | 100.0% | 1992-04-28 00:00:00.000 |  |
-| DATE_TO_BIA | DATE | 100.0% | 1992-04-28 |  |
-| DATE_APPEAL_DUE | DATE | 93.9% | 1999-07-19 |  |
+| DATE_RECD_FROM_BIA | DATE | 100.0% | 1974-11-14 |  |
+| DATE_MAILED_TO_IJ | DATE | 100.0% | 1974-11-14 |  |
+| DECISION_RENDERED_Remove | VARCHAR | 100.0% | 1974-11-14 00:00:00.000 |  |
+| DATE_TO_BIA | DATE | 100.0% | 1974-11-14 |  |
+| DATE_APPEAL_DUE | DATE | 94.0% | 2002-02-19 |  |
 | JURISDICTION | VARCHAR | 98.1% | IJ |  |
 | STAY_GRANT | VARCHAR | 99.8% | G |  |
-| RESP_DUE_DATE | DATE | 4.4% | 1985-10-03 |  |
+| RESP_DUE_DATE | DATE | 4.3% | 1986-08-20 |  |
 | APPEAL_NOT_FILED | VARCHAR | 99.7% | X |  |
 | APPEAL_RSVD | VARCHAR | 99.0% | A |  |
-| WU_MSG_Remove | VARCHAR | 99.7% | 3C |  |
-| DATMOTIONDUE | DATE | 94.7% | 2009-12-16 |  |
-| MOTION_RECD_DATE | DATE | 0.6% | 1985-09-23 |  |
-| COMP_DATE | DATE | 1.5% | 1985-10-11 |  |
-| DEC | VARCHAR | 1.5% | D |  |
-| IJ_NAME_Remove | VARCHAR | 97.2% | SIDNEY B. MAJURE, KR |  |
-| IJ_CODE | VARCHAR | 3.1% | SBM | Joins to lu_judge.JUDGE_CODE |
-| HEARING_LOC_CODE | VARCHAR | 0.0% | KRO | Joins to lu_hearing_location.LOC_CODE |
-| BASE_CITY_CODE | VARCHAR | 0.0% | KRO | Joins to lu_base_city.BASE_CITY_CODE |
+| WU_MSG_Remove | VARCHAR | 99.7% | FF |  |
+| DATMOTIONDUE | DATE | 94.7% | 1986-06-17 |  |
+| MOTION_RECD_DATE | DATE | 0.5% | 1988-02-18 |  |
+| COMP_DATE | DATE | 1.6% | 1989-08-14 |  |
+| DEC | VARCHAR | 1.6% | G |  |
+| IJ_NAME_Remove | VARCHAR | 97.2% | JOAN V. CHURCHILL |  |
+| IJ_CODE | VARCHAR | 3.0% | JVC | Joins to lu_judge.JUDGE_CODE |
+| HEARING_LOC_CODE | VARCHAR | 0.0% | WAS | Joins to lu_hearing_location.LOC_CODE |
+| BASE_CITY_CODE | VARCHAR | 0.0% | WAS | Joins to lu_base_city.BASE_CITY_CODE |
 | REJ_Remove | VARCHAR | 100.0% | A |  |
-| INPUT_TIME | VARCHAR | 0.0% | 0847 |  |
-| INPUT_DATE | DATE | 0.0% | 1985-09-24 |  |
-| UPDATE_TIME | VARCHAR | 0.2% | 1054 |  |
-| UPDATE_DATE | DATE | 0.2% | 1985-10-11 |  |
+| INPUT_TIME | VARCHAR | 0.0% | 1507 |  |
+| INPUT_DATE | DATE | 0.0% | 1989-02-22 |  |
+| UPDATE_TIME | VARCHAR | 0.2% | 0853 |  |
+| UPDATE_DATE | DATE | 0.2% | 1989-08-16 |  |
 | SUB_GENERATION | VARCHAR | 97.0% | 99 |  |
-| GENERATION | VARCHAR | 0.0% | 98 |  |
+| GENERATION | VARCHAR | 0.0% | 99 |  |
 | REC_TYPE | VARCHAR | 0.0% | SA |  |
-| OSC_DATE | DATE | 0.0% | 2009-02-10 |  |
-| IDNCASE | INTEGER | 0.0% | 6167286 | Primary case ID, joins across all core tables |
-| IDNPROCEEDING | INTEGER | 0.0% | 4801578 | Proceeding ID, joins proceedings to charges, schedule, motions |
-| IDNMOTION | INTEGER | 0.0% | 32884 |  |
+| OSC_DATE | DATE | 0.0% | 1968-10-24 |  |
+| IDNCASE | INTEGER | 0.0% | 2047365 | Primary case ID, joins across all core tables |
+| IDNPROCEEDING | INTEGER | 0.0% | 41 | Proceeding ID, joins proceedings to charges, schedule, motions |
+| IDNMOTION | INTEGER | 0.0% | 20 |  |
 
 ## pro_bono
 
 Pro bono screening records
 
 Source file: `tblProBono.csv`
-Rows: 67,909
+Rows: 68,485
 
 | Column | Type | Nulls | Example | Join |
 |--------|------|-------|---------|------|
-| strCustody | VARCHAR | 6.0% | D |  |
-| datModifiedOn | DATE | 82.5% | 2016-08-31 |  |
-| datCreatedOn | DATE | 5.8% | 2016-08-30 |  |
+| strCustody | VARCHAR | 5.9% | D |  |
+| datModifiedOn | DATE | 82.7% | 2011-11-29 |  |
+| datCreatedOn | DATE | 5.8% | 2011-11-22 |  |
 | blnProcessed | BOOLEAN | 0.0% | false |  |
-| strDCZip | VARCHAR | 96.9% | 921018834 |  |
-| strDCState | VARCHAR | 96.9% | CA |  |
-| strDCCity | VARCHAR | 96.5% | San Diego |  |
-| strDCAddress2 | VARCHAR | 96.5% | 880 Front St. Room 2246 |  |
-| strDCAddress1 | VARCHAR | 96.4% | DHS ICE OCC SND |  |
-| ScreenerIdn | VARCHAR | 95.3% | 73 |  |
-| strIntrprLang | VARCHAR | 100.0% | ZAR |  |
+| strDCZip | VARCHAR | 96.9% | 773510000 |  |
+| strDCState | VARCHAR | 96.9% | TX |  |
+| strDCCity | VARCHAR | 96.6% | Livingston |  |
+| strDCAddress2 | VARCHAR | 96.6% | 3400 FM 350 South |  |
+| strDCAddress1 | VARCHAR | 96.5% | DHS/ICE OCC -POK |  |
+| ScreenerIdn | VARCHAR | 95.4% | 0 |  |
+| strIntrprLang | VARCHAR | 100.0% | GER |  |
 | blnIntrpr | BOOLEAN | 0.0% | false |  |
-| idnRepl | INTEGER | 0.0% | 29078 |  |
-| datBriefCurrentlyDueAlien | DATE | 0.9% | 2016-09-20 |  |
-| idnAppeal | INTEGER | 0.5% | 5115351 |  |
-| datmailedtoNGO | DATE | 96.4% | 2018-04-17 |  |
-| Inmate_Housing | VARCHAR | 90.7% | ALT |  |
-| Date_Of_Entry | DATE | 30.6% | 2000-07-25 |  |
-| CaseID | VARCHAR | 78.6% | CD |  |
-| DCO_Location | VARCHAR | 91.2% | S |  |
+| idnRepl | INTEGER | 0.0% | 21739 |  |
+| datBriefCurrentlyDueAlien | DATE | 0.9% | 2011-12-07 |  |
+| idnAppeal | INTEGER | 0.5% | 4963319 |  |
+| datmailedtoNGO | DATE | 96.4% | 2011-12-05 |  |
+| Inmate_Housing | VARCHAR | 90.8% | RVS |  |
+| Date_Of_Entry | DATE | 30.7% | 2011-04-08 |  |
+| CaseID | VARCHAR | 78.2% | EM |  |
+| DCO_Location | VARCHAR | 91.3% | F |  |
 | OptionA | VARCHAR | 0.0% | -1 |  |
 | blnSelectedbyScreener | BOOLEAN | 0.0% | false |  |
-| blnSelectedbyCoordinator | BOOLEAN | 0.0% | true |  |
-| datROPreview | DATE | 95.9% | 2015-11-13 |  |
+| blnSelectedbyCoordinator | BOOLEAN | 0.0% | false |  |
+| datROPreview | DATE | 95.9% | 2011-12-02 |  |
 | strPossibility | VARCHAR | 99.8% | Low Possibility |  |
-| strINSStatus | VARCHAR | 96.2% | Arriving Alien |  |
-| strAlienSex | VARCHAR | 50.9% | M |  |
-| strAlienRegion | VARCHAR | 96.4% | Maccleny FL |  |
+| strINSStatus | VARCHAR | 96.3% | Lawful Permanent Resident |  |
+| strAlienSex | VARCHAR | 50.6% | M |  |
+| strAlienRegion | VARCHAR | 96.5% | Livingston, TX |  |
 | strA3 | VARCHAR | 100.0% |  |  |
 | strA2 | VARCHAR | 100.0% |  |  |
 | strA1 | VARCHAR | 100.0% |  |  |
 | CRIM_IND | VARCHAR | 0.5% | N |  |
-| other_comp | VARCHAR | 99.5% | A |  |
+| other_comp | VARCHAR | 99.5% | O |  |
 | Dec_Code | VARCHAR | 0.5% | X |  |
-| P_EOIR42B_Recd | VARCHAR | 89.5% | X |  |
+| P_EOIR42B_Recd | VARCHAR | 89.6% | X |  |
 | P_EOIR42A_Recd | VARCHAR | 95.6% | X |  |
 | WD_recd | VARCHAR | 100.0% | X |  |
-| VD_recd | VARCHAR | 87.7% | X |  |
+| VD_recd | VARCHAR | 87.8% | X |  |
 | recd_245 | VARCHAR | 98.2% | X |  |
 | recd_212C | VARCHAR | 99.7% | X |  |
-| Charge_6 | VARCHAR | 99.9% | 212a02Ai  II |  |
+| Charge_6 | VARCHAR | 99.9% | 237a02C |  |
 | Charge_5 | VARCHAR | 99.6% | 212a02Ai  I |  |
-| Charge_4 | VARCHAR | 98.7% | 237a01A |  |
-| Charge_3 | VARCHAR | 95.2% | 237a02Aiii |  |
-| Charge_2 | VARCHAR | 79.7% | 237a01B |  |
-| Charge_1 | VARCHAR | 1.1% | 212a06Ai |  |
+| Charge_4 | VARCHAR | 98.7% | 212a02Ai  I |  |
+| Charge_3 | VARCHAR | 95.2% | 212a02Ai  II |  |
+| Charge_2 | VARCHAR | 79.7% | 237a02Aiii |  |
+| Charge_1 | VARCHAR | 1.1% | 237a02Aiii |  |
 | blnOARequestedbyAmicus | BOOLEAN | 0.0% | false |  |
 | blnOARequestedbyINS | BOOLEAN | 0.0% | false |  |
 | blnOARequestedbyAlien | BOOLEAN | 0.0% | false |  |
-| strLang | VARCHAR | 0.2% | ENG |  |
+| strLang | VARCHAR | 0.2% | SP |  |
 | strNat | VARCHAR | 0.2% | MEXICO |  |
 | strFiledby | VARCHAR | 0.0% | A |  |
-| strProceedingIHP | VARCHAR | 92.3% | S |  |
-| datTranscriptServedAlien | DATE | 0.0% | 2016-08-30 |  |
-| strCorFacility | VARCHAR | 92.5% | S |  |
+| strProceedingIHP | VARCHAR | 92.4% | F |  |
+| datTranscriptServedAlien | DATE | 0.0% | 2011-11-16 |  |
+| strCorFacility | VARCHAR | 92.5% | F |  |
 | WD_DEC | VARCHAR | 100.0% | D |  |
-| VD_DEC | VARCHAR | 87.7% | D |  |
-| P_EOIR42B_DEC | VARCHAR | 89.6% | O |  |
-| P_EOIR42A_DEC | VARCHAR | 95.6% | O |  |
+| VD_DEC | VARCHAR | 87.8% | G |  |
+| P_EOIR42B_DEC | VARCHAR | 89.6% | D |  |
+| P_EOIR42A_DEC | VARCHAR | 95.6% | D |  |
 | Other_dec2 | VARCHAR | 99.8% | D |  |
-| Other_dec1 | VARCHAR | 35.6% | D |  |
-| NBR_OF_CHGS | VARCHAR | 1.0% | 1 |  |
-| DEC_245 | VARCHAR | 98.2% | G |  |
-| DEC_212C | VARCHAR | 99.7% | G |  |
+| Other_dec1 | VARCHAR | 35.5% | D |  |
+| NBR_OF_CHGS | VARCHAR | 1.0% | 02 |  |
+| DEC_245 | VARCHAR | 98.2% | D |  |
+| DEC_212C | VARCHAR | 99.7% | D |  |
 | Case_type | VARCHAR | 0.0% | RMV |  |
 
 ## proceedings
@@ -1887,116 +1901,116 @@ Rows: 67,909
 Proceedings: hearings, decisions, judges, charges
 
 Source file: `B_TblProceeding.csv`
-Rows: 16,817,359
+Rows: 16,899,722
 
 | Column | Type | Nulls | Example | Join |
 |--------|------|-------|---------|------|
-| DATE_RELEASED | DATE | 86.6% | 2008-09-19 |  |
-| DATE_DETAINED | DATE | 75.9% | 2007-06-13 |  |
-| AGGRAVATE_FELON | BOOLEAN | 25.5% | false |  |
+| DATE_RELEASED | DATE | 86.6% | 2026-09-13 |  |
+| DATE_DETAINED | DATE | 75.9% | 2026-09-14 |  |
+| AGGRAVATE_FELON | BOOLEAN | 25.4% | false |  |
 | IHP | VARCHAR | 98.4% | S |  |
 | CRIM_IND | VARCHAR | 2.5% | N |  |
 | CORRECTIONAL_FAC | VARCHAR | 97.7% | S |  |
-| SCHEDULED_HEAR_LOC | VARCHAR | 74.5% | NYC |  |
-| LANG | VARCHAR | 0.1% | POR | Joins to lu_language.LANG_CODE |
-| NAT | VARCHAR | 0.3% | GV | Joins to lu_nationality.NAT_CODE |
+| SCHEDULED_HEAR_LOC | VARCHAR | 74.6% | SNA |  |
+| LANG | VARCHAR | 0.1% | SP | Joins to lu_language.LANG_CODE |
+| NAT | VARCHAR | 0.3% | MX | Joins to lu_nationality.NAT_CODE |
 | CASE_TYPE | VARCHAR | 0.0% | RMV | Joins to lu_case_type.CASE_TYPE_CODE |
-| CUSTODY | VARCHAR | 0.0% | N | Joins to lu_custody_status.CUSTODY_CODE |
-| TRANSFER_STATUS | VARCHAR | 67.3% | C |  |
-| DATE_APPEAL_DUE_STATUS | DATE | 30.4% | 2009-06-10 |  |
-| TRANSFER_TO | VARCHAR | 81.1% | BOS |  |
-| VENUE_CHG_GRANTED | DATE | 81.1% | 2008-09-19 |  |
-| ABSENTIA | VARCHAR | 21.4% | N |  |
-| COMP_DATE | DATE | 18.4% | 2009-05-11 |  |
+| CUSTODY | VARCHAR | 0.0% | D | Joins to lu_custody_status.CUSTODY_CODE |
+| TRANSFER_STATUS | VARCHAR | 67.2% | C |  |
+| DATE_APPEAL_DUE_STATUS | DATE | 30.0% | 2026-10-21 |  |
+| TRANSFER_TO | VARCHAR | 81.0% | EDN |  |
+| VENUE_CHG_GRANTED | DATE | 81.0% | 2026-09-21 |  |
+| ABSENTIA | VARCHAR | 21.0% | N |  |
+| COMP_DATE | DATE | 18.0% | 2026-09-21 |  |
 | APPEAL_NOT_FILED | VARCHAR | 96.8% | X |  |
-| APPEAL_RSVD | VARCHAR | 89.4% | A |  |
-| OTHER_COMP | VARCHAR | 73.8% | T |  |
+| APPEAL_RSVD | VARCHAR | 89.2% | B |  |
+| OTHER_COMP | VARCHAR | 73.7% | T |  |
 | DEPORTED_2 | VARCHAR | 99.1% | HO |  |
-| DEPORTED_1 | VARCHAR | 63.0% | MX |  |
-| DEC_CODE | VARCHAR | 44.6% | T | Joins to lu_court_decision.COURT_DEC_CODE |
-| DEC_TYPE | VARCHAR | 33.1% | O |  |
-| HEARING_TIME | VARCHAR | 3.1% | 0900 |  |
-| HEARING_DATE | DATE | 3.2% | 2008-09-15 |  |
-| TRANS_NBR | VARCHAR | 62.6% | 01 |  |
-| PREV_IJ_CODE | VARCHAR | 81.3% | EAH |  |
-| PREV_HEARING_BASE | VARCHAR | 81.0% | DET |  |
-| PREV_HEARING_LOC | VARCHAR | 81.0% | DET |  |
-| TRANS_IN_DATE | DATE | 81.2% | 2008-08-11 |  |
-| IJ_CODE | VARCHAR | 0.8% | IW | Joins to lu_judge.JUDGE_CODE |
-| HEARING_LOC_CODE | VARCHAR | 0.0% | LVG | Joins to lu_hearing_location.LOC_CODE |
-| BASE_CITY_CODE | VARCHAR | 0.0% | LVG | Joins to lu_base_city.BASE_CITY_CODE |
-| INPUT_DATE | DATE | 2.8% | 2008-08-08 |  |
-| OSC_DATE | DATE | 0.6% | 2008-01-11 |  |
-| IDNCASE | INTEGER | 0.0% | 6014822 | Primary case ID, joins across all core tables |
-| IDNPROCEEDING | INTEGER | 0.0% | 4594173 | Proceeding ID, joins proceedings to charges, schedule, motions |
+| DEPORTED_1 | VARCHAR | 62.6% | ES |  |
+| DEC_CODE | VARCHAR | 44.3% | V | Joins to lu_court_decision.COURT_DEC_CODE |
+| DEC_TYPE | VARCHAR | 32.7% | W |  |
+| HEARING_TIME | VARCHAR | 3.2% | 0830 |  |
+| HEARING_DATE | DATE | 3.3% | 2026-09-30 |  |
+| TRANS_NBR | VARCHAR | 62.6% | 02 |  |
+| PREV_IJ_CODE | VARCHAR | 81.2% | NIC |  |
+| PREV_HEARING_BASE | VARCHAR | 81.0% | OTM |  |
+| PREV_HEARING_LOC | VARCHAR | 81.0% | OTM |  |
+| TRANS_IN_DATE | DATE | 81.1% | 2026-09-14 |  |
+| IJ_CODE | VARCHAR | 0.9% | WJW | Joins to lu_judge.JUDGE_CODE |
+| HEARING_LOC_CODE | VARCHAR | 0.0% | IDP | Joins to lu_hearing_location.LOC_CODE |
+| BASE_CITY_CODE | VARCHAR | 0.0% | INP | Joins to lu_base_city.BASE_CITY_CODE |
+| INPUT_DATE | DATE | 2.8% | 2026-09-14 |  |
+| OSC_DATE | DATE | 0.6% | 2026-09-14 |  |
+| IDNCASE | INTEGER | 0.0% | 15762247 | Primary case ID, joins across all core tables |
+| IDNPROCEEDING | INTEGER | 0.0% | 17539552 | Proceeding ID, joins proceedings to charges, schedule, motions |
 
 ## representatives
 
 Attorney representation records
 
 Source file: `tbl_RepsAssigned.csv`
-Rows: 26,890,405
+Rows: 27,105,444
 
 | Column | Type | Nulls | Example | Join |
 |--------|------|-------|---------|------|
 | BLNPRIMEATTY | BOOLEAN | 0.0% | true |  |
-| E_28_DATE | DATE | 51.7% | 2001-04-10 |  |
-| E_27_DATE | DATE | 95.9% | 2002-01-28 |  |
-| INS_TA_DATE_ASSIGNED | VARCHAR | 44.3% | 2001-06-14 00:00:00.000 |  |
-| BASE_CITY_CODE | VARCHAR | 35.0% | MIA | Joins to lu_base_city.BASE_CITY_CODE |
-| PARENT_IDN | VARCHAR | 0.0% | 4514997 |  |
-| PARENT_TABLE | VARCHAR | 0.0% | B_TblProceeding |  |
+| E_28_DATE | DATE | 51.6% | 2004-04-06 |  |
+| E_27_DATE | DATE | 95.9% | 2004-02-04 |  |
+| INS_TA_DATE_ASSIGNED | VARCHAR | 44.0% | 2009-03-10 00:00:00.000 |  |
+| BASE_CITY_CODE | VARCHAR | 35.2% | WAS | Joins to lu_base_city.BASE_CITY_CODE |
+| PARENT_IDN | VARCHAR | 0.0% | 2047751 |  |
+| PARENT_TABLE | VARCHAR | 0.0% | A_Tblcase |  |
 | STRATTYTYPE | VARCHAR | 0.0% | ALIEN |  |
 | STRATTYLEVEL | VARCHAR | 0.0% | COURT |  |
-| IDNCASE | INTEGER | 0.0% | 3895602 | Primary case ID, joins across all core tables |
-| IDNREPSASSIGNED | INTEGER | 0.0% | 6153875 |  |
+| IDNCASE | INTEGER | 0.0% | 2047751 | Primary case ID, joins across all core tables |
+| IDNREPSASSIGNED | INTEGER | 0.0% | 5945062 |  |
 
 ## schedule
 
 Hearing schedule entries with calendar type and adjournments
 
 Source file: `tbl_schedule.csv`
-Rows: 48,049,351
+Rows: 48,492,125
 
 | Column | Type | Nulls | Example | Join |
 |--------|------|-------|---------|------|
-| EOIRAttorneyID | VARCHAR | 59.2% | 7F1E07A9-3CF3-E411-8850-F4CE46822D51 |  |
+| EOIRAttorneyID | VARCHAR | 59.2% | FBE5787E-68C3-4F0A-90C3-96668DB4D289 |  |
 | BLNCLOCKOVERRIDE | BOOLEAN | 0.0% | false |  |
-| NOTICE_CODE | VARCHAR | 42.4% | T3 |  |
+| NOTICE_CODE | VARCHAR | 42.1% | 7P |  |
 | SCHEDULE_TYPE | VARCHAR | 0.0% | MM |  |
-| LNGSESSNID | VARCHAR | 19.7% | 10459593 |  |
-| ADJ_ELAP_DAYS | VARCHAR | 47.2% | 0000 |  |
-| ADJ_MSG | VARCHAR | 85.7% | Q6 |  |
-| ADJ_MEDIUM | VARCHAR | 12.0% | p |  |
-| ADJ_RSN | VARCHAR | 13.6% | 8B | Joins to lu_adjournment.ADJ_RSN_CODE |
-| ADJ_TIME_STOP | VARCHAR | 10.1% | 0930 |  |
-| ADJ_TIME_START | VARCHAR | 0.0% | 0830 |  |
-| ADJ_DATE | DATE | 0.0% | 2020-03-18 |  |
+| LNGSESSNID | VARCHAR | 19.5% | 19308066 |  |
+| ADJ_ELAP_DAYS | VARCHAR | 47.0% | 0311 |  |
+| ADJ_MSG | VARCHAR | 85.9% | V6 |  |
+| ADJ_MEDIUM | VARCHAR | 11.9% | A |  |
+| ADJ_RSN | VARCHAR | 13.3% | 32 | Joins to lu_adjournment.ADJ_RSN_CODE |
+| ADJ_TIME_STOP | VARCHAR | 10.0% | 1330 |  |
+| ADJ_TIME_START | VARCHAR | 0.0% | 1300 |  |
+| ADJ_DATE | DATE | 0.0% | 2025-08-14 |  |
 | CAL_TYPE | VARCHAR | 0.0% | M | Joins to lu_cal_type.CAL_TYPE_CODE |
 | ASSIGNMENT_PATH | VARCHAR | 85.3% | W |  |
-| UPDATE_TIME | VARCHAR | 0.0% | 0931 |  |
-| UPDATE_DATE | DATE | 0.0% | 2020-02-18 |  |
-| INPUT_TIME | VARCHAR | 0.0% | 0930 |  |
-| INPUT_DATE | DATE | 0.0% | 2020-02-18 |  |
+| UPDATE_TIME | VARCHAR | 0.0% | 0135 |  |
+| UPDATE_DATE | DATE | 0.0% | 2025-08-14 |  |
+| INPUT_TIME | VARCHAR | 0.0% | 1241 |  |
+| INPUT_DATE | DATE | 0.0% | 2023-12-19 |  |
 | INTERPRETER_CODE | VARCHAR | 100.0% | KSS |  |
-| IJ_CODE | VARCHAR | 0.0% | SAF | Joins to lu_judge.JUDGE_CODE |
-| BASE_CITY_CODE | VARCHAR | 0.0% | NYC | Joins to lu_base_city.BASE_CITY_CODE |
-| HEARING_LOC_CODE | VARCHAR | 0.0% | NYC | Joins to lu_hearing_location.LOC_CODE |
-| LANG | VARCHAR | 3.5% | SP | Joins to lu_language.LANG_CODE |
+| IJ_CODE | VARCHAR | 0.0% | LTF | Joins to lu_judge.JUDGE_CODE |
+| BASE_CITY_CODE | VARCHAR | 0.0% | PHI | Joins to lu_base_city.BASE_CITY_CODE |
+| HEARING_LOC_CODE | VARCHAR | 0.0% | PHI | Joins to lu_hearing_location.LOC_CODE |
+| LANG | VARCHAR | 3.5% | CRE | Joins to lu_language.LANG_CODE |
 | REC_TYPE | VARCHAR | 0.0% | X |  |
-| SUB_GENERATION | VARCHAR | 95.3% | 99 |  |
+| SUB_GENERATION | VARCHAR | 95.4% | 99 |  |
 | GENERATION | VARCHAR | 0.0% | 99 |  |
-| OSC_DATE | DATE | 0.0% | 2019-07-15 |  |
-| IDNCASE | INTEGER | 0.0% | 9437472 | Primary case ID, joins across all core tables |
-| IDNPROCEEDING | INTEGER | 0.0% | 9337462 | Proceeding ID, joins proceedings to charges, schedule, motions |
-| IDNSCHEDULE | INTEGER | 0.0% | 36221303 |  |
+| OSC_DATE | DATE | 0.0% | 2023-12-19 |  |
+| IDNCASE | INTEGER | 0.0% | 13250605 | Primary case ID, joins across all core tables |
+| IDNPROCEEDING | INTEGER | 0.0% | 13821713 | Proceeding ID, joins proceedings to charges, schedule, motions |
+| IDNSCHEDULE | INTEGER | 0.0% | 47975332 |  |
 
 ## three_mbr_referrals
 
 Loaded from tblThreeMbrReferrals.csv
 
 Source file: `tblThreeMbrReferrals.csv`
-Rows: 84,810
+Rows: 85,059
 
 | Column | Type | Nulls | Example | Join |
 |--------|------|-------|---------|------|
@@ -2009,85 +2023,85 @@ Rows: 84,810
 
 | Column | Type | Nulls | Example | Join |
 |--------|------|-------|---------|------|
-| IDNCASE | INTEGER | 0.0% | 14118694 | Primary case ID, joins across all core tables |
-| NAT | VARCHAR | 1.0% | ES | Joins to lu_nationality.NAT_CODE |
-| country | VARCHAR | 1.0% | MEXICO |  |
+| IDNCASE | INTEGER | 0.0% | 14258892 | Primary case ID, joins across all core tables |
+| NAT | VARCHAR | 1.0% | BL | Joins to lu_nationality.NAT_CODE |
+| country | VARCHAR | 1.0% | BOLIVIA |  |
 | LANG | VARCHAR | 1.2% | SP | Joins to lu_language.LANG_CODE |
-| Sex | VARCHAR | 45.0% | M |  |
-| CUSTODY | VARCHAR | 1.0% | N | Joins to lu_custody_status.CUSTODY_CODE |
-| CASE_TYPE | VARCHAR | 0.0% | RMV | Joins to lu_case_type.CASE_TYPE_CODE |
-| LPR | BOOLEAN | 91.8% | false |  |
-| DATE_OF_ENTRY | DATE | 38.5% | 2024-05-06 |  |
+| Sex | VARCHAR | 44.9% | M |  |
+| CUSTODY | VARCHAR | 1.0% | D | Joins to lu_custody_status.CUSTODY_CODE |
+| CASE_TYPE | VARCHAR | 0.0% | CFR | Joins to lu_case_type.CASE_TYPE_CODE |
+| LPR | BOOLEAN | 91.7% | false |  |
+| DATE_OF_ENTRY | DATE | 38.7% | 2019-08-18 |  |
 | C_BIRTHDATE | DATE | 100.0% | 2024-05-31 |  |
-| DATE_DETAINED | DATE | 81.2% | 2024-05-21 |  |
-| DATE_RELEASED | DATE | 92.4% | 2013-05-03 |  |
+| DATE_DETAINED | DATE | 81.1% | 2024-06-24 |  |
+| DATE_RELEASED | DATE | 92.4% | 2005-05-11 |  |
 | DETENTION_FACILITY_TYPE | VARCHAR | 100.0% | M |  |
-| first_hearing_date | DATE | 2.4% | 2024-06-05 |  |
-| OSC_DATE | DATE | 2.4% | 2025-01-28 |  |
-| days_osc_to_hearing | BIGINT | 2.4% | 15 |  |
-| days_detained_to_hearing | BIGINT | 82.6% | 15 |  |
-| BASE_CITY_CODE | VARCHAR | 2.4% | BLM | Joins to lu_base_city.BASE_CITY_CODE |
+| first_hearing_date | DATE | 2.5% | 2024-06-25 |  |
+| OSC_DATE | DATE | 2.5% | 2024-06-24 |  |
+| days_osc_to_hearing | BIGINT | 2.5% | 1 |  |
+| days_detained_to_hearing | BIGINT | 82.6% | 1 |  |
+| BASE_CITY_CODE | VARCHAR | 2.5% | SDC | Joins to lu_base_city.BASE_CITY_CODE |
 
 ## v_first_hearing
 
 | Column | Type | Nulls | Example | Join |
 |--------|------|-------|---------|------|
-| IDNCASE | INTEGER | 0.0% | 5606787 | Primary case ID, joins across all core tables |
-| IDNPROCEEDING | INTEGER | 0.0% | 3200123 | Proceeding ID, joins proceedings to charges, schedule, motions |
-| BASE_CITY_CODE | VARCHAR | 0.0% | CHI | Joins to lu_base_city.BASE_CITY_CODE |
+| IDNCASE | INTEGER | 0.0% | 15762247 | Primary case ID, joins across all core tables |
+| IDNPROCEEDING | INTEGER | 0.0% | 3199700 | Proceeding ID, joins proceedings to charges, schedule, motions |
+| BASE_CITY_CODE | VARCHAR | 0.0% | OMA | Joins to lu_base_city.BASE_CITY_CODE |
 | CUSTODY | VARCHAR | 0.0% | D | Joins to lu_custody_status.CUSTODY_CODE |
 | CASE_TYPE | VARCHAR | 0.0% | RMV | Joins to lu_case_type.CASE_TYPE_CODE |
-| OSC_DATE | DATE | 0.0% | 2004-03-11 |  |
-| first_hearing_date | DATE | 0.0% | 2004-05-12 |  |
-| DATE_DETAINED | DATE | 82.2% | 2007-02-07 |  |
-| days_osc_to_hearing | BIGINT | 0.0% | 25 |  |
-| days_detained_to_hearing | BIGINT | 82.2% | 28 |  |
-| days_detained_to_osc | BIGINT | 82.2% | -2 |  |
+| OSC_DATE | DATE | 0.0% | 2019-04-17 |  |
+| first_hearing_date | DATE | 0.0% | 2026-09-30 |  |
+| DATE_DETAINED | DATE | 82.1% | 2006-10-24 |  |
+| days_osc_to_hearing | BIGINT | 0.0% | 10 |  |
+| days_detained_to_hearing | BIGINT | 82.1% | 58 |  |
+| days_detained_to_osc | BIGINT | 82.1% | 0 |  |
 
 ## v_proceedings_full
 
 | Column | Type | Nulls | Example | Join |
 |--------|------|-------|---------|------|
-| IDNPROCEEDING | INTEGER | 0.0% | 10112124 | Proceeding ID, joins proceedings to charges, schedule, motions |
-| IDNCASE | INTEGER | 0.0% | 10028463 | Primary case ID, joins across all core tables |
-| OSC_DATE | DATE | 0.6% | 2021-08-17 |  |
-| INPUT_DATE | DATE | 2.8% | 2021-10-05 |  |
-| BASE_CITY_CODE | VARCHAR | 0.0% | ELP | Joins to lu_base_city.BASE_CITY_CODE |
-| HEARING_LOC_CODE | VARCHAR | 0.0% | ELP | Joins to lu_hearing_location.LOC_CODE |
-| IJ_CODE | VARCHAR | 0.8% | IW | Joins to lu_judge.JUDGE_CODE |
-| TRANS_IN_DATE | DATE | 81.2% | 2025-08-08 |  |
-| PREV_HEARING_LOC | VARCHAR | 81.0% | ELP |  |
-| PREV_HEARING_BASE | VARCHAR | 81.0% | ORL |  |
-| PREV_IJ_CODE | VARCHAR | 81.3% | SFK |  |
-| TRANS_NBR | VARCHAR | 62.6% | 01 |  |
-| HEARING_DATE | DATE | 3.2% | 2008-09-15 |  |
-| HEARING_TIME | VARCHAR | 3.1% | 0900 |  |
-| DEC_TYPE | VARCHAR | 33.1% | O |  |
-| DEC_CODE | VARCHAR | 44.6% | U | Joins to lu_court_decision.COURT_DEC_CODE |
-| DEPORTED_1 | VARCHAR | 63.0% | MX |  |
+| IDNPROCEEDING | INTEGER | 0.0% | 17539558 | Proceeding ID, joins proceedings to charges, schedule, motions |
+| IDNCASE | INTEGER | 0.0% | 15617588 | Primary case ID, joins across all core tables |
+| OSC_DATE | DATE | 0.6% | 2026-06-26 |  |
+| INPUT_DATE | DATE | 2.8% | 2026-09-14 |  |
+| BASE_CITY_CODE | VARCHAR | 0.0% | JNA | Joins to lu_base_city.BASE_CITY_CODE |
+| HEARING_LOC_CODE | VARCHAR | 0.0% | RCC | Joins to lu_hearing_location.LOC_CODE |
+| IJ_CODE | VARCHAR | 0.9% | FSM | Joins to lu_judge.JUDGE_CODE |
+| TRANS_IN_DATE | DATE | 81.1% | 2026-09-24 |  |
+| PREV_HEARING_LOC | VARCHAR | 81.0% | DED |  |
+| PREV_HEARING_BASE | VARCHAR | 81.0% | DET |  |
+| PREV_IJ_CODE | VARCHAR | 81.2% | MJJ |  |
+| TRANS_NBR | VARCHAR | 62.6% | 02 |  |
+| HEARING_DATE | DATE | 3.3% | 2026-09-30 |  |
+| HEARING_TIME | VARCHAR | 3.2% | 0930 |  |
+| DEC_TYPE | VARCHAR | 32.7% | W |  |
+| DEC_CODE | VARCHAR | 44.3% | V | Joins to lu_court_decision.COURT_DEC_CODE |
+| DEPORTED_1 | VARCHAR | 62.6% | ES |  |
 | DEPORTED_2 | VARCHAR | 99.1% | HO |  |
-| OTHER_COMP | VARCHAR | 73.8% | T |  |
-| APPEAL_RSVD | VARCHAR | 89.4% | A |  |
+| OTHER_COMP | VARCHAR | 73.7% | T |  |
+| APPEAL_RSVD | VARCHAR | 89.2% | B |  |
 | APPEAL_NOT_FILED | VARCHAR | 96.8% | X |  |
-| COMP_DATE | DATE | 18.4% | 2025-01-27 |  |
-| ABSENTIA | VARCHAR | 21.4% | N |  |
-| VENUE_CHG_GRANTED | DATE | 81.1% | 2024-05-22 |  |
-| TRANSFER_TO | VARCHAR | 81.1% | CHI |  |
-| DATE_APPEAL_DUE_STATUS | DATE | 30.4% | 2025-03-13 |  |
-| TRANSFER_STATUS | VARCHAR | 67.3% | C |  |
-| CUSTODY | VARCHAR | 0.0% | N | Joins to lu_custody_status.CUSTODY_CODE |
+| COMP_DATE | DATE | 18.0% | 2026-09-30 |  |
+| ABSENTIA | VARCHAR | 21.0% | N |  |
+| VENUE_CHG_GRANTED | DATE | 81.0% | 2026-09-21 |  |
+| TRANSFER_TO | VARCHAR | 81.0% | EDN |  |
+| DATE_APPEAL_DUE_STATUS | DATE | 30.0% | 2026-10-30 |  |
+| TRANSFER_STATUS | VARCHAR | 67.2% | C |  |
+| CUSTODY | VARCHAR | 0.0% | D | Joins to lu_custody_status.CUSTODY_CODE |
 | CASE_TYPE | VARCHAR | 0.0% | RMV | Joins to lu_case_type.CASE_TYPE_CODE |
-| NAT | VARCHAR | 0.3% | GT | Joins to lu_nationality.NAT_CODE |
+| NAT | VARCHAR | 0.3% | ES | Joins to lu_nationality.NAT_CODE |
 | LANG | VARCHAR | 0.1% | SP | Joins to lu_language.LANG_CODE |
-| SCHEDULED_HEAR_LOC | VARCHAR | 74.5% | NYC |  |
+| SCHEDULED_HEAR_LOC | VARCHAR | 74.6% | SNA |  |
 | CORRECTIONAL_FAC | VARCHAR | 97.7% | S |  |
 | CRIM_IND | VARCHAR | 2.5% | N |  |
 | IHP | VARCHAR | 98.4% | S |  |
-| AGGRAVATE_FELON | BOOLEAN | 25.5% | false |  |
-| DATE_DETAINED | DATE | 75.9% | 2019-12-11 |  |
-| DATE_RELEASED | DATE | 86.6% | 2008-06-18 |  |
+| AGGRAVATE_FELON | BOOLEAN | 25.4% | false |  |
+| DATE_DETAINED | DATE | 75.9% | 2026-06-26 |  |
+| DATE_RELEASED | DATE | 86.6% | 2019-11-22 |  |
 | court_name | VARCHAR | 0.0% | IMMIGRATION COURT |  |
-| judge_name | VARCHAR | 1.0% | Kulick, Dawn |  |
-| nationality_name | VARCHAR | 0.3% | GUINEA |  |
-| country_name | VARCHAR | 0.3% | GUINEA |  |
-| decision_description | VARCHAR | 44.6% | Terminated |  |
+| judge_name | VARCHAR | 1.1% | Mwangi, Francis |  |
+| nationality_name | VARCHAR | 0.3% | EL SALVADOR |  |
+| country_name | VARCHAR | 0.3% | EL SALVADOR |  |
+| decision_description | VARCHAR | 44.3% | Voluntary Departure |  |

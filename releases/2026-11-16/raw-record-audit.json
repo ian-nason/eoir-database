@@ -1,0 +1,590 @@
+[
+  {
+    "file": "EOIR Case Data 2026-1001/EOIR Case Data/A_TblCase.csv",
+    "nonempty_records_excluding_header": 12869752,
+    "empty_lines": 0,
+    "replacement_characters_when_decoded_as_utf8": 166
+  },
+  {
+    "file": "EOIR Case Data 2026-1001/EOIR Case Data/A_TblCaseIdentifier.csv",
+    "nonempty_records_excluding_header": 2669114,
+    "empty_lines": 93,
+    "replacement_characters_when_decoded_as_utf8": 0
+  },
+  {
+    "file": "EOIR Case Data 2026-1001/EOIR Case Data/B_TblProceedCharges.csv",
+    "nonempty_records_excluding_header": 19270794,
+    "empty_lines": 11,
+    "replacement_characters_when_decoded_as_utf8": 0
+  },
+  {
+    "file": "EOIR Case Data 2026-1001/EOIR Case Data/B_TblProceeding.csv",
+    "nonempty_records_excluding_header": 16899722,
+    "empty_lines": 0,
+    "replacement_characters_when_decoded_as_utf8": 0
+  },
+  {
+    "file": "EOIR Case Data 2026-1001/EOIR Case Data/D_TblAssociatedBond.csv",
+    "nonempty_records_excluding_header": 1654849,
+    "empty_lines": 0,
+    "replacement_characters_when_decoded_as_utf8": 0
+  },
+  {
+    "file": "EOIR Case Data 2026-1001/EOIR Case Data/tbl_CasePriorityHistory.csv",
+    "nonempty_records_excluding_header": 151250,
+    "empty_lines": 0,
+    "replacement_characters_when_decoded_as_utf8": 0
+  },
+  {
+    "file": "EOIR Case Data 2026-1001/EOIR Case Data/tbl_Court_Appln.csv",
+    "nonempty_records_excluding_header": 16460394,
+    "empty_lines": 2,
+    "replacement_characters_when_decoded_as_utf8": 0
+  },
+  {
+    "file": "EOIR Case Data 2026-1001/EOIR Case Data/tbl_Court_Motions.csv",
+    "nonempty_records_excluding_header": 9178220,
+    "empty_lines": 0,
+    "replacement_characters_when_decoded_as_utf8": 0
+  },
+  {
+    "file": "EOIR Case Data 2026-1001/EOIR Case Data/tbl_CustodyHistory.csv",
+    "nonempty_records_excluding_header": 10279713,
+    "empty_lines": 0,
+    "replacement_characters_when_decoded_as_utf8": 0
+  },
+  {
+    "file": "EOIR Case Data 2026-1001/EOIR Case Data/tbl_EOIR_Attorney.csv",
+    "nonempty_records_excluding_header": 411877,
+    "empty_lines": 0,
+    "replacement_characters_when_decoded_as_utf8": 0
+  },
+  {
+    "file": "EOIR Case Data 2026-1001/EOIR Case Data/tbl_JuvenileHistory.csv",
+    "nonempty_records_excluding_header": 3183371,
+    "empty_lines": 0,
+    "replacement_characters_when_decoded_as_utf8": 0
+  },
+  {
+    "file": "EOIR Case Data 2026-1001/EOIR Case Data/tbl_Lead_Rider.csv",
+    "nonempty_records_excluding_header": 2678697,
+    "empty_lines": 0,
+    "replacement_characters_when_decoded_as_utf8": 0
+  },
+  {
+    "file": "EOIR Case Data 2026-1001/EOIR Case Data/tbl_RepsAssigned.csv",
+    "nonempty_records_excluding_header": 27105444,
+    "empty_lines": 0,
+    "replacement_characters_when_decoded_as_utf8": 0
+  },
+  {
+    "file": "EOIR Case Data 2026-1001/EOIR Case Data/tbl_schedule.csv",
+    "nonempty_records_excluding_header": 48492125,
+    "empty_lines": 0,
+    "replacement_characters_when_decoded_as_utf8": 0
+  },
+  {
+    "file": "EOIR Case Data 2026-1001/EOIR Case Data/tblAppeal.csv",
+    "nonempty_records_excluding_header": 1585540,
+    "empty_lines": 0,
+    "replacement_characters_when_decoded_as_utf8": 0
+  },
+  {
+    "file": "EOIR Case Data 2026-1001/EOIR Case Data/tblAppeal2.csv",
+    "nonempty_records_excluding_header": 1283643,
+    "empty_lines": 0,
+    "replacement_characters_when_decoded_as_utf8": 0
+  },
+  {
+    "file": "EOIR Case Data 2026-1001/EOIR Case Data/tblAppealFedCourts.csv",
+    "nonempty_records_excluding_header": 183628,
+    "empty_lines": 0,
+    "replacement_characters_when_decoded_as_utf8": 0
+  },
+  {
+    "file": "EOIR Case Data 2026-1001/EOIR Case Data/tblProBono.csv",
+    "nonempty_records_excluding_header": 68485,
+    "empty_lines": 0,
+    "replacement_characters_when_decoded_as_utf8": 0
+  },
+  {
+    "file": "EOIR Case Data 2026-1001/EOIR Case Data/tblThreeMbrReferrals.csv",
+    "nonempty_records_excluding_header": 85059,
+    "empty_lines": 0,
+    "replacement_characters_when_decoded_as_utf8": 0
+  },
+  {
+    "file": "EOIR Case Data 2026-1001/Lookup/tbl_br_DeductCodes.csv",
+    "nonempty_records_excluding_header": 15,
+    "empty_lines": 0,
+    "replacement_characters_when_decoded_as_utf8": 0
+  },
+  {
+    "file": "EOIR Case Data 2026-1001/Lookup/tblAdjournmentcodes.csv",
+    "nonempty_records_excluding_header": 124,
+    "empty_lines": 0,
+    "replacement_characters_when_decoded_as_utf8": 0
+  },
+  {
+    "file": "EOIR Case Data 2026-1001/Lookup/tblBarCodeType.csv",
+    "nonempty_records_excluding_header": 141,
+    "empty_lines": 0,
+    "replacement_characters_when_decoded_as_utf8": 0
+  },
+  {
+    "file": "EOIR Case Data 2026-1001/Lookup/tblDecCode.csv",
+    "nonempty_records_excluding_header": 12,
+    "empty_lines": 0,
+    "replacement_characters_when_decoded_as_utf8": 0
+  },
+  {
+    "file": "EOIR Case Data 2026-1001/Lookup/tblInmateHousing.csv",
+    "nonempty_records_excluding_header": 4752,
+    "empty_lines": 0,
+    "replacement_characters_when_decoded_as_utf8": 0
+  },
+  {
+    "file": "EOIR Case Data 2026-1001/Lookup/tblINSoffice.csv",
+    "nonempty_records_excluding_header": 74,
+    "empty_lines": 0,
+    "replacement_characters_when_decoded_as_utf8": 0
+  },
+  {
+    "file": "EOIR Case Data 2026-1001/Lookup/tblLanguage.csv",
+    "nonempty_records_excluding_header": 743,
+    "empty_lines": 0,
+    "replacement_characters_when_decoded_as_utf8": 0
+  },
+  {
+    "file": "EOIR Case Data 2026-1001/Lookup/tblLookUp_Appln.csv",
+    "nonempty_records_excluding_header": 40,
+    "empty_lines": 0,
+    "replacement_characters_when_decoded_as_utf8": 0
+  },
+  {
+    "file": "EOIR Case Data 2026-1001/Lookup/tblLookup_BIACluster.csv",
+    "nonempty_records_excluding_header": 244,
+    "empty_lines": 0,
+    "replacement_characters_when_decoded_as_utf8": 0
+  },
+  {
+    "file": "EOIR Case Data 2026-1001/Lookup/tblLookup_CasePriority.csv",
+    "nonempty_records_excluding_header": 6,
+    "empty_lines": 0,
+    "replacement_characters_when_decoded_as_utf8": 0
+  },
+  {
+    "file": "EOIR Case Data 2026-1001/Lookup/tbllookup_Category.csv",
+    "nonempty_records_excluding_header": 7,
+    "empty_lines": 0,
+    "replacement_characters_when_decoded_as_utf8": 0
+  },
+  {
+    "file": "EOIR Case Data 2026-1001/Lookup/tblLookup_INS_Clock_Entry_Status.csv",
+    "nonempty_records_excluding_header": 8,
+    "empty_lines": 0,
+    "replacement_characters_when_decoded_as_utf8": 0
+  },
+  {
+    "file": "EOIR Case Data 2026-1001/Lookup/tblLookup_Juvenile.csv",
+    "nonempty_records_excluding_header": 6,
+    "empty_lines": 0,
+    "replacement_characters_when_decoded_as_utf8": 0
+  },
+  {
+    "file": "EOIR Case Data 2026-1001/Lookup/tblLookup3MbrReferredReason.csv",
+    "nonempty_records_excluding_header": 7,
+    "empty_lines": 0,
+    "replacement_characters_when_decoded_as_utf8": 0
+  },
+  {
+    "file": "EOIR Case Data 2026-1001/Lookup/tblLookupAlienNat.csv",
+    "nonempty_records_excluding_header": 256,
+    "empty_lines": 0,
+    "replacement_characters_when_decoded_as_utf8": 0
+  },
+  {
+    "file": "EOIR Case Data 2026-1001/Lookup/tblLookUpAllegationStmt.csv",
+    "nonempty_records_excluding_header": 3,
+    "empty_lines": 0,
+    "replacement_characters_when_decoded_as_utf8": 0
+  },
+  {
+    "file": "EOIR Case Data 2026-1001/Lookup/tblLookupAppealIssues.csv",
+    "nonempty_records_excluding_header": 248,
+    "empty_lines": 0,
+    "replacement_characters_when_decoded_as_utf8": 0
+  },
+  {
+    "file": "EOIR Case Data 2026-1001/Lookup/tbllookupAppealType.csv",
+    "nonempty_records_excluding_header": 19,
+    "empty_lines": 0,
+    "replacement_characters_when_decoded_as_utf8": 0
+  },
+  {
+    "file": "EOIR Case Data 2026-1001/Lookup/tblLookupBaseCity.csv",
+    "nonempty_records_excluding_header": 97,
+    "empty_lines": 0,
+    "replacement_characters_when_decoded_as_utf8": 0
+  },
+  {
+    "file": "EOIR Case Data 2026-1001/Lookup/tblLookupBIA.csv",
+    "nonempty_records_excluding_header": 895,
+    "empty_lines": 0,
+    "replacement_characters_when_decoded_as_utf8": 0
+  },
+  {
+    "file": "EOIR Case Data 2026-1001/Lookup/tblLookupBIADecision.csv",
+    "nonempty_records_excluding_header": 55,
+    "empty_lines": 0,
+    "replacement_characters_when_decoded_as_utf8": 0
+  },
+  {
+    "file": "EOIR Case Data 2026-1001/Lookup/tblLookupBIADecisionType.csv",
+    "nonempty_records_excluding_header": 5,
+    "empty_lines": 0,
+    "replacement_characters_when_decoded_as_utf8": 0
+  },
+  {
+    "file": "EOIR Case Data 2026-1001/Lookup/tblLookupBoardMotions.csv",
+    "nonempty_records_excluding_header": 18,
+    "empty_lines": 0,
+    "replacement_characters_when_decoded_as_utf8": 0
+  },
+  {
+    "file": "EOIR Case Data 2026-1001/Lookup/tbllookupCal_Type.csv",
+    "nonempty_records_excluding_header": 29,
+    "empty_lines": 0,
+    "replacement_characters_when_decoded_as_utf8": 0
+  },
+  {
+    "file": "EOIR Case Data 2026-1001/Lookup/tblLookupCallup_Reasons.csv",
+    "nonempty_records_excluding_header": 30,
+    "empty_lines": 0,
+    "replacement_characters_when_decoded_as_utf8": 0
+  },
+  {
+    "file": "EOIR Case Data 2026-1001/Lookup/tblLookUpCaseIdentifier.csv",
+    "nonempty_records_excluding_header": 122,
+    "empty_lines": 0,
+    "replacement_characters_when_decoded_as_utf8": 0
+  },
+  {
+    "file": "EOIR Case Data 2026-1001/Lookup/tblLookupCaseType.csv",
+    "nonempty_records_excluding_header": 13,
+    "empty_lines": 0,
+    "replacement_characters_when_decoded_as_utf8": 0
+  },
+  {
+    "file": "EOIR Case Data 2026-1001/Lookup/tbllookupCharges.csv",
+    "nonempty_records_excluding_header": 252,
+    "empty_lines": 0,
+    "replacement_characters_when_decoded_as_utf8": 0
+  },
+  {
+    "file": "EOIR Case Data 2026-1001/Lookup/tblLookupClaimedIssue.csv",
+    "nonempty_records_excluding_header": 4,
+    "empty_lines": 0,
+    "replacement_characters_when_decoded_as_utf8": 0
+  },
+  {
+    "file": "EOIR Case Data 2026-1001/Lookup/tblLookupCommentTypeBoard.csv",
+    "nonempty_records_excluding_header": 9,
+    "empty_lines": 0,
+    "replacement_characters_when_decoded_as_utf8": 0
+  },
+  {
+    "file": "EOIR Case Data 2026-1001/Lookup/tblLookupComponents.csv",
+    "nonempty_records_excluding_header": 4,
+    "empty_lines": 0,
+    "replacement_characters_when_decoded_as_utf8": 0
+  },
+  {
+    "file": "EOIR Case Data 2026-1001/Lookup/tblLookupConsultedWith.csv",
+    "nonempty_records_excluding_header": 5,
+    "empty_lines": 0,
+    "replacement_characters_when_decoded_as_utf8": 0
+  },
+  {
+    "file": "EOIR Case Data 2026-1001/Lookup/tblLookupContactChange.csv",
+    "nonempty_records_excluding_header": 9,
+    "empty_lines": 0,
+    "replacement_characters_when_decoded_as_utf8": 0
+  },
+  {
+    "file": "EOIR Case Data 2026-1001/Lookup/tblLookupCountry.csv",
+    "nonempty_records_excluding_header": 254,
+    "empty_lines": 0,
+    "replacement_characters_when_decoded_as_utf8": 0
+  },
+  {
+    "file": "EOIR Case Data 2026-1001/Lookup/tblLookupCourtAppDecisions.csv",
+    "nonempty_records_excluding_header": 14,
+    "empty_lines": 0,
+    "replacement_characters_when_decoded_as_utf8": 0
+  },
+  {
+    "file": "EOIR Case Data 2026-1001/Lookup/tblLookupCourtDecision.csv",
+    "nonempty_records_excluding_header": 217,
+    "empty_lines": 0,
+    "replacement_characters_when_decoded_as_utf8": 0
+  },
+  {
+    "file": "EOIR Case Data 2026-1001/Lookup/tblLookupCustodyStatus.csv",
+    "nonempty_records_excluding_header": 3,
+    "empty_lines": 0,
+    "replacement_characters_when_decoded_as_utf8": 0
+  },
+  {
+    "file": "EOIR Case Data 2026-1001/Lookup/tblLookUpDDDecisionTypes.csv",
+    "nonempty_records_excluding_header": 23,
+    "empty_lines": 0,
+    "replacement_characters_when_decoded_as_utf8": 0
+  },
+  {
+    "file": "EOIR Case Data 2026-1001/Lookup/tblLookupDistrictLocation.csv",
+    "nonempty_records_excluding_header": 289,
+    "empty_lines": 0,
+    "replacement_characters_when_decoded_as_utf8": 0
+  },
+  {
+    "file": "EOIR Case Data 2026-1001/Lookup/tblLookupFedCourtDecision.csv",
+    "nonempty_records_excluding_header": 4,
+    "empty_lines": 0,
+    "replacement_characters_when_decoded_as_utf8": 0
+  },
+  {
+    "file": "EOIR Case Data 2026-1001/Lookup/tblLookupFedCourtRemandTo.csv",
+    "nonempty_records_excluding_header": 2,
+    "empty_lines": 0,
+    "replacement_characters_when_decoded_as_utf8": 0
+  },
+  {
+    "file": "EOIR Case Data 2026-1001/Lookup/tblLookupFeeStatus.csv",
+    "nonempty_records_excluding_header": 5,
+    "empty_lines": 0,
+    "replacement_characters_when_decoded_as_utf8": 0
+  },
+  {
+    "file": "EOIR Case Data 2026-1001/Lookup/tblLookupFeeType.csv",
+    "nonempty_records_excluding_header": 3,
+    "empty_lines": 0,
+    "replacement_characters_when_decoded_as_utf8": 0
+  },
+  {
+    "file": "EOIR Case Data 2026-1001/Lookup/tblLookupFiledBy.csv",
+    "nonempty_records_excluding_header": 9,
+    "empty_lines": 0,
+    "replacement_characters_when_decoded_as_utf8": 0
+  },
+  {
+    "file": "EOIR Case Data 2026-1001/Lookup/tblLookupFiling_Method.csv",
+    "nonempty_records_excluding_header": 4,
+    "empty_lines": 0,
+    "replacement_characters_when_decoded_as_utf8": 0
+  },
+  {
+    "file": "EOIR Case Data 2026-1001/Lookup/tblLookupFiling_Method_Party.csv",
+    "nonempty_records_excluding_header": 10,
+    "empty_lines": 0,
+    "replacement_characters_when_decoded_as_utf8": 0
+  },
+  {
+    "file": "EOIR Case Data 2026-1001/Lookup/tblLookupFinalDisposition.csv",
+    "nonempty_records_excluding_header": 4,
+    "empty_lines": 0,
+    "replacement_characters_when_decoded_as_utf8": 0
+  },
+  {
+    "file": "EOIR Case Data 2026-1001/Lookup/tblLookupHloc.csv",
+    "nonempty_records_excluding_header": 1381,
+    "empty_lines": 0,
+    "replacement_characters_when_decoded_as_utf8": 0
+  },
+  {
+    "file": "EOIR Case Data 2026-1001/Lookup/tblLookupHoldReason.csv",
+    "nonempty_records_excluding_header": 37,
+    "empty_lines": 0,
+    "replacement_characters_when_decoded_as_utf8": 0
+  },
+  {
+    "file": "EOIR Case Data 2026-1001/Lookup/tblLookupHolidays.csv",
+    "nonempty_records_excluding_header": 613,
+    "empty_lines": 0,
+    "replacement_characters_when_decoded_as_utf8": 0
+  },
+  {
+    "file": "EOIR Case Data 2026-1001/Lookup/tblLookupInmate.csv",
+    "nonempty_records_excluding_header": 4850,
+    "empty_lines": 0,
+    "replacement_characters_when_decoded_as_utf8": 0
+  },
+  {
+    "file": "EOIR Case Data 2026-1001/Lookup/tblLookUpINSAddress.csv",
+    "nonempty_records_excluding_header": 1469,
+    "empty_lines": 0,
+    "replacement_characters_when_decoded_as_utf8": 0
+  },
+  {
+    "file": "EOIR Case Data 2026-1001/Lookup/tblLookupINSLOC.csv",
+    "nonempty_records_excluding_header": 1020,
+    "empty_lines": 0,
+    "replacement_characters_when_decoded_as_utf8": 0
+  },
+  {
+    "file": "EOIR Case Data 2026-1001/Lookup/tblLookupINSTA.csv",
+    "nonempty_records_excluding_header": 9671,
+    "empty_lines": 0,
+    "replacement_characters_when_decoded_as_utf8": 0
+  },
+  {
+    "file": "EOIR Case Data 2026-1001/Lookup/tblLookupInTrPr.csv",
+    "nonempty_records_excluding_header": 94,
+    "empty_lines": 0,
+    "replacement_characters_when_decoded_as_utf8": 0
+  },
+  {
+    "file": "EOIR Case Data 2026-1001/Lookup/tblLookupInTrPrAgenda.csv",
+    "nonempty_records_excluding_header": 5,
+    "empty_lines": 0,
+    "replacement_characters_when_decoded_as_utf8": 0
+  },
+  {
+    "file": "EOIR Case Data 2026-1001/Lookup/tblLookupIntrPrLang.csv",
+    "nonempty_records_excluding_header": 14,
+    "empty_lines": 0,
+    "replacement_characters_when_decoded_as_utf8": 0
+  },
+  {
+    "file": "EOIR Case Data 2026-1001/Lookup/tblLookupInTrPrLangGroup.csv",
+    "nonempty_records_excluding_header": 2,
+    "empty_lines": 0,
+    "replacement_characters_when_decoded_as_utf8": 0
+  },
+  {
+    "file": "EOIR Case Data 2026-1001/Lookup/tblLookupJudge.csv",
+    "nonempty_records_excluding_header": 1840,
+    "empty_lines": 0,
+    "replacement_characters_when_decoded_as_utf8": 0
+  },
+  {
+    "file": "EOIR Case Data 2026-1001/Lookup/tblLookupJudgeBaseCity.csv",
+    "nonempty_records_excluding_header": 12777,
+    "empty_lines": 0,
+    "replacement_characters_when_decoded_as_utf8": 0
+  },
+  {
+    "file": "EOIR Case Data 2026-1001/Lookup/tblLookupMotionType.csv",
+    "nonempty_records_excluding_header": 72,
+    "empty_lines": 0,
+    "replacement_characters_when_decoded_as_utf8": 0
+  },
+  {
+    "file": "EOIR Case Data 2026-1001/Lookup/tblLookupNationality.csv",
+    "nonempty_records_excluding_header": 251,
+    "empty_lines": 0,
+    "replacement_characters_when_decoded_as_utf8": 0
+  },
+  {
+    "file": "EOIR Case Data 2026-1001/Lookup/tblLookupNOTICE.csv",
+    "nonempty_records_excluding_header": 598,
+    "empty_lines": 0,
+    "replacement_characters_when_decoded_as_utf8": 0
+  },
+  {
+    "file": "EOIR Case Data 2026-1001/Lookup/tblLookupOAResponse.csv",
+    "nonempty_records_excluding_header": 4,
+    "empty_lines": 0,
+    "replacement_characters_when_decoded_as_utf8": 0
+  },
+  {
+    "file": "EOIR Case Data 2026-1001/Lookup/tblLookupOfficeLocation.csv",
+    "nonempty_records_excluding_header": 265,
+    "empty_lines": 0,
+    "replacement_characters_when_decoded_as_utf8": 0
+  },
+  {
+    "file": "EOIR Case Data 2026-1001/Lookup/tblLookupPriority.csv",
+    "nonempty_records_excluding_header": 16,
+    "empty_lines": 0,
+    "replacement_characters_when_decoded_as_utf8": 0
+  },
+  {
+    "file": "EOIR Case Data 2026-1001/Lookup/tblLookupRegion.csv",
+    "nonempty_records_excluding_header": 2,
+    "empty_lines": 0,
+    "replacement_characters_when_decoded_as_utf8": 0
+  },
+  {
+    "file": "EOIR Case Data 2026-1001/Lookup/tbllookupSchedule_Type.csv",
+    "nonempty_records_excluding_header": 36,
+    "empty_lines": 0,
+    "replacement_characters_when_decoded_as_utf8": 0
+  },
+  {
+    "file": "EOIR Case Data 2026-1001/Lookup/tblLookupService_Method.csv",
+    "nonempty_records_excluding_header": 6,
+    "empty_lines": 0,
+    "replacement_characters_when_decoded_as_utf8": 0
+  },
+  {
+    "file": "EOIR Case Data 2026-1001/Lookup/tblLookupSex.csv",
+    "nonempty_records_excluding_header": 2,
+    "empty_lines": 0,
+    "replacement_characters_when_decoded_as_utf8": 0
+  },
+  {
+    "file": "EOIR Case Data 2026-1001/Lookup/tblLookupSpecialIssue.csv",
+    "nonempty_records_excluding_header": 43,
+    "empty_lines": 0,
+    "replacement_characters_when_decoded_as_utf8": 0
+  },
+  {
+    "file": "EOIR Case Data 2026-1001/Lookup/tblLookupState.csv",
+    "nonempty_records_excluding_header": 59,
+    "empty_lines": 0,
+    "replacement_characters_when_decoded_as_utf8": 0
+  },
+  {
+    "file": "EOIR Case Data 2026-1001/Lookup/tblLookupTranscribers.csv",
+    "nonempty_records_excluding_header": 14,
+    "empty_lines": 0,
+    "replacement_characters_when_decoded_as_utf8": 0
+  },
+  {
+    "file": "EOIR Case Data 2026-1001/Lookup/tblLookupVote.csv",
+    "nonempty_records_excluding_header": 7,
+    "empty_lines": 0,
+    "replacement_characters_when_decoded_as_utf8": 0
+  },
+  {
+    "file": "EOIR Case Data 2026-1001/Lookup/tblPanels.csv",
+    "nonempty_records_excluding_header": 20,
+    "empty_lines": 0,
+    "replacement_characters_when_decoded_as_utf8": 0
+  },
+  {
+    "file": "EOIR Case Data 2026-1001/Lookup/tblResponsibleParty.csv",
+    "nonempty_records_excluding_header": 3381,
+    "empty_lines": 0,
+    "replacement_characters_when_decoded_as_utf8": 0
+  },
+  {
+    "file": "EOIR Case Data 2026-1001/Lookup/tblTeams.csv",
+    "nonempty_records_excluding_header": 37,
+    "empty_lines": 0,
+    "replacement_characters_when_decoded_as_utf8": 0
+  },
+  {
+    "file": "EOIR Case Data 2026-1001/Lookup/tblTortureConvID.csv",
+    "nonempty_records_excluding_header": 8,
+    "empty_lines": 0,
+    "replacement_characters_when_decoded_as_utf8": 0
+  },
+  {
+    "file": "EOIR Case Data 2026-1001/Schema_Related/EOIRDB_Schema.csv",
+    "nonempty_records_excluding_header": 1051,
+    "empty_lines": 0,
+    "replacement_characters_when_decoded_as_utf8": 0
+  }
+]

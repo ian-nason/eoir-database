@@ -53,9 +53,9 @@ Queries run on your computer and read the byte ranges they need. A small result 
 
 ## Tables and coverage
 
-The row counts below are approximate figures retained from the repository guide; use the hosted database's `_metadata` for its current counts.
+The row counts below describe the November 16 build from EOIR’s September 2026 release. The 98 stored source tables include the publisher’s 1,051-row `eoirdb_schema` reference table; totals mix units and do not count unique cases or people.
 
-- **Coverage.** Proceedings carry `OSC_DATE`s from 1990 (925,750 rows dated 1990-1995)
+- **Coverage.** Proceedings carry `OSC_DATE`s from 1990 (early years are incomplete)
   and a handful of sentinel and future dates; the registry's `1990-2026` is the range of
   plausible `OSC_DATE` values, not a guarantee that early years are complete.
 
@@ -63,22 +63,22 @@ The row counts below are approximate figures retained from the repository guide;
 
 | Table | Source file | Description | ~Rows |
 |-------|-----------|-------------|------:|
-| `proceedings` | `B_TblProceeding.csv` | Proceedings: hearings, decisions, judges | ~16M |
-| `cases` | `A_TblCase.csv` | Case-level demographics, custody, dates, attorney | ~12M |
-| `charges` | `B_TblProceedCharges.csv` | Individual charges per proceeding | ~18M |
-| `schedule` | `tbl_schedule.csv` | Hearing schedule, calendar type, adjournments | ~45M |
-| `applications` | `tbl_Court_Appln.csv` | Applications for relief (asylum, etc.) | ~16M |
-| `bonds` | `D_TblAssociatedBond.csv` | Bond hearing records and amounts | ~1.6M |
-| `representatives` | `tbl_RepsAssigned.csv` | Attorney representation records | ~26M |
-| `motions` | `tbl_Court_Motions.csv` | Motions filed in proceedings | ~8M |
-| `appeals` | `tblAppeal.csv` | Appeals to Board of Immigration Appeals | ~1.5M |
-| `custody_history` | `tbl_CustodyHistory.csv` | Custody status changes | ~10M |
-| `case_identifiers` | `A_TblCaseIdentifier.csv` | Case ID cross-references | ~2.4M |
-| `juvenile_history` | `tbl_JuvenileHistory.csv` | Juvenile designation records | ~3M |
-| `lead_rider` | `tbl_Lead_Rider.csv` | Lead/rider case relationships | ~2.6M |
-| `case_priority_history` | `tbl_CasePriorityHistory.csv` | Priority code changes | ~138K |
-| `attorneys` | `tbl_EOIR_Attorney.csv` | Attorney registry | ~404K |
-| `pro_bono` | `tblProBono.csv` | Pro bono screening records | ~66K |
+| `proceedings` | `B_TblProceeding.csv` | Proceedings: hearings, decisions, judges | 16,899,722 |
+| `cases` | `A_TblCase.csv` | Case-level demographics, custody, dates, attorney | 12,869,593 |
+| `charges` | `B_TblProceedCharges.csv` | Individual charges per proceeding | 19,270,794 |
+| `schedule` | `tbl_schedule.csv` | Hearing schedule, calendar type, adjournments | 48,492,125 |
+| `applications` | `tbl_Court_Appln.csv` | Applications for relief (asylum, etc.) | 16,460,394 |
+| `bonds` | `D_TblAssociatedBond.csv` | Bond hearing records and amounts | 1,654,849 |
+| `representatives` | `tbl_RepsAssigned.csv` | Attorney representation records | 27,105,444 |
+| `motions` | `tbl_Court_Motions.csv` | Motions filed in proceedings | 9,178,220 |
+| `appeals` | `tblAppeal.csv` | Appeals to Board of Immigration Appeals | 1,585,540 |
+| `custody_history` | `tbl_CustodyHistory.csv` | Custody status changes | 10,279,713 |
+| `case_identifiers` | `A_TblCaseIdentifier.csv` | Case ID cross-references | 2,669,114 |
+| `juvenile_history` | `tbl_JuvenileHistory.csv` | Juvenile designation records | 3,183,371 |
+| `lead_rider` | `tbl_Lead_Rider.csv` | Lead/rider case relationships | 2,678,697 |
+| `case_priority_history` | `tbl_CasePriorityHistory.csv` | Priority code changes | 151,250 |
+| `attorneys` | `tbl_EOIR_Attorney.csv` | Attorney registry | 411,877 |
+| `pro_bono` | `tblProBono.csv` | Pro bono screening records | 68,485 |
 
 ### Lookup tables
 
@@ -86,23 +86,23 @@ All files in the `Lookup/` directory are loaded with the `lu_` prefix (78 tables
 
 | Table | Description | Key columns |
 |-------|-------------|-------------|
-| `lu_nationality` | Country/nationality codes | `NAT_CODE` -> `NAT_NAME`, `NAT_COUNTRY_NAME` |
-| `lu_language` | Language codes | `strCode` -> `strDescription` |
-| `lu_base_city` | Immigration court locations | `BASE_CITY_CODE` -> `BASE_CITY_NAME` |
-| `lu_hearing_location` | Hearing locations & detention type | `HEARING_LOC_CODE` -> name, address |
-| `lu_judge` | Immigration judge codes | `JUDGE_CODE` -> `JUDGE_NAME` |
-| `lu_charges` | Charge codes | `strCode` -> `strCodeDescription` |
-| `lu_court_decision` | Court decision codes (by case type) | `strDecCode` x `strCaseType` -> description |
-| `lu_app_decision` | Application decision codes | `strCourtApplnDecCode` -> description |
-| `lu_cal_type` | Calendar type codes | `strCalTypeCode` -> description |
-| `lu_adjournment` | Adjournment reason codes | `strcode` -> `strDesciption` |
-| `lu_application` | Application type codes | `strcode` -> `strdescription` |
-| `lu_custody_status` | Custody status codes | `strCode` -> description |
-| `lu_case_type` | Case type codes | `strCode` -> description |
-| `lu_motion_type` | Motion type codes | `strMotionCode` -> description |
-| `lu_bia_decision` | BIA decision codes | `strCode` -> description |
-| `lu_schedule_type` | Schedule type codes | `strCode` -> description |
-| `lu_state` | U.S. state codes | `state_code` -> `state_name` |
+| `lu_nationality` | Country/nationality codes | 251 |
+| `lu_language` | Language codes | 743 |
+| `lu_base_city` | Immigration court locations | 97 |
+| `lu_hearing_location` | Hearing locations & detention type | 1,381 |
+| `lu_judge` | Immigration judge codes | 1,840 |
+| `lu_charges` | Charge codes | 252 |
+| `lu_court_decision` | Court decision codes (by case type) | 217 |
+| `lu_app_decision` | Application decision codes | 14 |
+| `lu_cal_type` | Calendar type codes | 29 |
+| `lu_adjournment` | Adjournment reason codes | 124 |
+| `lu_application` | Application type codes | 40 |
+| `lu_custody_status` | Custody status codes | 3 |
+| `lu_case_type` | Case type codes | 13 |
+| `lu_motion_type` | Motion type codes | 72 |
+| `lu_bia_decision` | BIA decision codes | 55 |
+| `lu_schedule_type` | Schedule type codes | 36 |
+| `lu_state` | U.S. state codes | 59 |
 
 Any additional lookup files found are also loaded automatically.
 
@@ -348,7 +348,7 @@ As of the July 2026 build, trailing-space padding and literal NUL bytes are stri
 
 - **Zip extraction:** The EOIR zip file does not extract properly with some archive utilities. The build script uses Python's `zipfile` module and falls back to the `unzip` command if that fails.
 - **Monthly updates:** EOIR updates the dump monthly at a stable URL. Re-running the build re-downloads the zip whenever its ETag / Last-Modified / size differs from the copy on disk (recorded in `<zip>.meta.json`), discards the previous extraction, and rebuilds from scratch; `DATAPOND_REFRESH=skip` reuses the cached zip offline.
-- **Large tables:** The `schedule` table (~45M rows) and `representatives` table (~26M rows) take the longest. Total build time is typically ~5 minutes.
+- **Large tables:** The `schedule` table (~45M rows) and `representatives` table (~26M rows) take the longest. Build time depends on local CPU, memory and disk performance; the bounded refresh can take substantially longer.
 
 ### Data validation
 
@@ -356,9 +356,7 @@ Every build runs the checks in `build_database.py` (row counts, type casting, re
 integrity, lookup coverage, view correctness, data freshness, end-to-end queries) and
 fails if any of them does; the numbers for the current file are in `VALIDATION.md`.
 
-- **Charge lookup coverage** is 99.997% (19,176,101 of 19,176,675 non-NULL charge rows
-  join to `lu_charges`) after the July 2026 normalisation of charge codes; the build
-  requires at least 99.9%.
+- **Charge lookup coverage** must be at least 99.9%; the current release passed this check. See `VALIDATION.md` for the release audit.
 
 ### Coming soon
 
@@ -367,3 +365,20 @@ fails if any of them does; the numbers for the current file are in `VALIDATION.m
 ### License
 
 MIT
+
+
+### November 16, 2026 — September 2026 source refresh
+
+This release contains **174,560,256 stored rows across 98 source tables**, plus three views and internal metadata tables. It uses the September 2026 EOIR archive dated October 1. Relative to the prior release, all 97 existing source tables remain and the publisher’s 1,051-row `eoirdb_schema` reference is also retained. The database is 4,725,420,032 bytes, SHA-256 `b86bfdbca2867d5859ba625f76bb51e90218b47a78676712168c4c0fea856634`.
+
+The independent streaming audit reconciled all 98 CSV members. Ninety-seven tables exactly match their nonempty raw record counts. The case source contains **159 records with invalid UTF-8**, which the established importer skips; 12,869,593 case rows are stored from 12,869,752 raw records. The source also has malformed tab-separated records: permissive parsing, padding and typed coercion follow the existing pipeline and do not establish raw-cell equality. No untyped fallback was used. All builder checks passed. These limits matter when interpreting small count differences; the original ZIP is archived with this release so the excluded source records remain available for investigation.
+
+Source hashes, table counts, the source-record reconciliation and baseline comparison are in `releases/2026-11-16` on GitHub and accompanying JSON files on Hugging Face. The complete original ZIP is [source-archive-2026-10-01.zip](https://huggingface.co/datasets/Nason/eoir-database/resolve/main/source-archive-2026-10-01.zip), SHA-256 `a1d0394d31a6b810b81ae91a676adef5d6839ead7ca33c8e3ee38653687a7d2f`. Use the immutable release commit when citing or downloading it.
+
+To replay with Python 3.11+ and the pinned project dependencies in a fresh checkout:
+
+```sh
+python refresh_20261116.py --archive source-archive-2026-10-01.zip
+```
+
+The release script verifies the entire ZIP before parsing, extracts one CSV at a time, preserves the ZIP and refuses to overwrite an existing partial build. It requires 25 GiB free at startup and keeps a 5 GiB extraction reserve, using one DuckDB thread, a 1 GiB buffer pool and at most 1 GiB spill. Engine limits do not cap total process memory. The general `build_database.py` workflow remains available for future source editions.

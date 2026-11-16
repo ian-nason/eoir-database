@@ -1,0 +1,813 @@
+{
+  "source_snapshot": "2026-11-16",
+  "source_release": "September 2026, archive dated October 1",
+  "source_url": "https://fileshare.eoir.justice.gov/EOIR%20Case%20Data.zip",
+  "archive": {
+    "bytes": 4596977100,
+    "sha256": "a1d0394d31a6b810b81ae91a676adef5d6839ead7ca33c8e3ee38653687a7d2f"
+  },
+  "members": [
+    {
+      "file": "EOIR Case Data 2026-1001/Lookup/tblLookup3MbrReferredReason.csv",
+      "table": "lu_3_mbr_referred_reason",
+      "bytes": 636,
+      "sha256": "03f949ef9c54ad29633bfe4b053e29e6b1b84d2a7940a99e87ede4478f47aa8f",
+      "rows": 7,
+      "physical_newlines": 8
+    },
+    {
+      "file": "EOIR Case Data 2026-1001/Lookup/tblAdjournmentcodes.csv",
+      "table": "lu_adjournment",
+      "bytes": 11027,
+      "sha256": "51a03c6d242fd83fa8d33556ca969b544b5067857866b1c120e7a80779458c30",
+      "rows": 124,
+      "physical_newlines": 125
+    },
+    {
+      "file": "EOIR Case Data 2026-1001/Lookup/tblLookupAlienNat.csv",
+      "table": "lu_alien_nat",
+      "bytes": 18138,
+      "sha256": "ebdb0d09b07dc1f67b511567c0d9e144b04d5e46ccd3f638f700cce1bd7dda98",
+      "rows": 256,
+      "physical_newlines": 257
+    },
+    {
+      "file": "EOIR Case Data 2026-1001/Lookup/tblLookUpAllegationStmt.csv",
+      "table": "lu_allegation_stmt",
+      "bytes": 367,
+      "sha256": "5150147f6e44142607b7a3f704ef97ff2f6c6640678d93e66e5aaa7848943a11",
+      "rows": 3,
+      "physical_newlines": 4
+    },
+    {
+      "file": "EOIR Case Data 2026-1001/Lookup/tblLookupCourtAppDecisions.csv",
+      "table": "lu_app_decision",
+      "bytes": 990,
+      "sha256": "5f37ec8fd81215bde1ce6eb7227a5788a6b3c08fe5dfa94a7f3e1b654450996a",
+      "rows": 14,
+      "physical_newlines": 15
+    },
+    {
+      "file": "EOIR Case Data 2026-1001/Lookup/tblLookupAppealIssues.csv",
+      "table": "lu_appeal_issues",
+      "bytes": 19201,
+      "sha256": "71475997f588c13de8a03936d880f89246e65e9f8695091dddf58a28a2051a17",
+      "rows": 248,
+      "physical_newlines": 249
+    },
+    {
+      "file": "EOIR Case Data 2026-1001/Lookup/tbllookupAppealType.csv",
+      "table": "lu_appeal_type",
+      "bytes": 1642,
+      "sha256": "9b20a6076a9c95849d8d427ff1af1e36b69f9c56a71e943d81f3d0ba7f55f7eb",
+      "rows": 19,
+      "physical_newlines": 20
+    },
+    {
+      "file": "EOIR Case Data 2026-1001/Lookup/tblLookUp_Appln.csv",
+      "table": "lu_application",
+      "bytes": 4703,
+      "sha256": "c58533c456cb8ce70469b003af07a9b14f68df1bea591cc2302c3859935d4d6c",
+      "rows": 40,
+      "physical_newlines": 41
+    },
+    {
+      "file": "EOIR Case Data 2026-1001/Lookup/tblBarCodeType.csv",
+      "table": "lu_bar_code_type",
+      "bytes": 10784,
+      "sha256": "21869549fe2d3c5175cbf7de6c745cea35a52bb553196cfd431b8a89794e0011",
+      "rows": 141,
+      "physical_newlines": 142
+    },
+    {
+      "file": "EOIR Case Data 2026-1001/Lookup/tblLookupBaseCity.csv",
+      "table": "lu_base_city",
+      "bytes": 23712,
+      "sha256": "c3a60043f774f1402e35b7a7665cd095742dd7b5af74c9fb1a2249a67d670804",
+      "rows": 97,
+      "physical_newlines": 98
+    },
+    {
+      "file": "EOIR Case Data 2026-1001/Lookup/tblLookupBIA.csv",
+      "table": "lu_bia",
+      "bytes": 60936,
+      "sha256": "5d28cc7d36c60722571f6bdb75e41914be237b7820628f433ec806a0676fdd9d",
+      "rows": 895,
+      "physical_newlines": 896
+    },
+    {
+      "file": "EOIR Case Data 2026-1001/Lookup/tblLookupBIADecision.csv",
+      "table": "lu_bia_decision",
+      "bytes": 4484,
+      "sha256": "dccbd1a2595d7d802bd56bf00f6b8324df046fbf7411367ccdd20acccc9cc81c",
+      "rows": 55,
+      "physical_newlines": 56
+    },
+    {
+      "file": "EOIR Case Data 2026-1001/Lookup/tblLookup_BIACluster.csv",
+      "table": "lu_biacluster",
+      "bytes": 12763,
+      "sha256": "fc48dc1fe058eab53ad6ee65f0d431929a08a6e2637c039ca4dd0136b5a04c07",
+      "rows": 244,
+      "physical_newlines": 245
+    },
+    {
+      "file": "EOIR Case Data 2026-1001/Lookup/tblLookupBIADecisionType.csv",
+      "table": "lu_biadecision_type",
+      "bytes": 364,
+      "sha256": "77bfe02a72ed2803a18e0ce6a98af5b8c7759bc8da0301a5f2ebb5e6d8b03d98",
+      "rows": 5,
+      "physical_newlines": 6
+    },
+    {
+      "file": "EOIR Case Data 2026-1001/Lookup/tblLookupBoardMotions.csv",
+      "table": "lu_board_motions",
+      "bytes": 2012,
+      "sha256": "87fecd0b19eeb8b958344ccc88d45421b112f5905af59416ed6cf3d2f82bd1e9",
+      "rows": 18,
+      "physical_newlines": 19
+    },
+    {
+      "file": "EOIR Case Data 2026-1001/Lookup/tbl_br_DeductCodes.csv",
+      "table": "lu_br_deduct_codes",
+      "bytes": 909,
+      "sha256": "ffdf56b0671f2b4686cb95c215f1096ae442beb760075d03604406af33be1dce",
+      "rows": 15,
+      "physical_newlines": 16
+    },
+    {
+      "file": "EOIR Case Data 2026-1001/Lookup/tbllookupCal_Type.csv",
+      "table": "lu_cal_type",
+      "bytes": 1526,
+      "sha256": "a36a09aeda7fd836a1762a9c064a27cb9fbe7283c176a6ad40ff53ded0c0cfb0",
+      "rows": 29,
+      "physical_newlines": 30
+    },
+    {
+      "file": "EOIR Case Data 2026-1001/Lookup/tblLookupCallup_Reasons.csv",
+      "table": "lu_callup_reasons",
+      "bytes": 3091,
+      "sha256": "7ca6a626f8829f12e9eb01a6d994c1c33367b8942a650173ee5fbd4a54ca6fed",
+      "rows": 30,
+      "physical_newlines": 31
+    },
+    {
+      "file": "EOIR Case Data 2026-1001/Lookup/tblLookUpCaseIdentifier.csv",
+      "table": "lu_case_identifier",
+      "bytes": 9970,
+      "sha256": "01bd182e3e76e0940c8cd789b4a4aa782b110e82d80c6f184a2f8a3de956a86c",
+      "rows": 122,
+      "physical_newlines": 123
+    },
+    {
+      "file": "EOIR Case Data 2026-1001/Lookup/tblLookup_CasePriority.csv",
+      "table": "lu_case_priority",
+      "bytes": 624,
+      "sha256": "b84f494e86aaaaa1b48815fb58ba2205bfdac1206b04fcaad094f78709703830",
+      "rows": 6,
+      "physical_newlines": 7
+    },
+    {
+      "file": "EOIR Case Data 2026-1001/Lookup/tblLookupCaseType.csv",
+      "table": "lu_case_type",
+      "bytes": 904,
+      "sha256": "bef09a444291dd64285495d98397b55f965c81d8811098329d11ddd97c8473a0",
+      "rows": 13,
+      "physical_newlines": 14
+    },
+    {
+      "file": "EOIR Case Data 2026-1001/Lookup/tbllookup_Category.csv",
+      "table": "lu_category",
+      "bytes": 465,
+      "sha256": "0ca10c572af51a97e1b5a30fd8abebc8991d26ea9833070da078534e6bc6c5b5",
+      "rows": 7,
+      "physical_newlines": 8
+    },
+    {
+      "file": "EOIR Case Data 2026-1001/Lookup/tbllookupCharges.csv",
+      "table": "lu_charges",
+      "bytes": 30193,
+      "sha256": "105287ff68e0a35080c8aee76d5fa8cf9bde9f8366c726aa66cf2c616b5a02ef",
+      "rows": 252,
+      "physical_newlines": 253
+    },
+    {
+      "file": "EOIR Case Data 2026-1001/Lookup/tblLookupClaimedIssue.csv",
+      "table": "lu_claimed_issue",
+      "bytes": 236,
+      "sha256": "4e76f0eac49e66d5cfd446577027dc8b0fd8a8a53d684285ef82d299c3491103",
+      "rows": 4,
+      "physical_newlines": 5
+    },
+    {
+      "file": "EOIR Case Data 2026-1001/Lookup/tblLookupCommentTypeBoard.csv",
+      "table": "lu_comment_type_board",
+      "bytes": 540,
+      "sha256": "2de5254de3861d7404f047e766a3e9c3cfe9501a1f1513078983b5da3427465b",
+      "rows": 9,
+      "physical_newlines": 10
+    },
+    {
+      "file": "EOIR Case Data 2026-1001/Lookup/tblLookupComponents.csv",
+      "table": "lu_components",
+      "bytes": 228,
+      "sha256": "907ef623df94bc606eb0a8cda1db58f7e406162b279793009685a8a5adab1ca0",
+      "rows": 4,
+      "physical_newlines": 5
+    },
+    {
+      "file": "EOIR Case Data 2026-1001/Lookup/tblLookupConsultedWith.csv",
+      "table": "lu_consulted_with",
+      "bytes": 280,
+      "sha256": "c442a0bb3decfa1a968df7919b827f9b1e9697b9b1fa925086de88e47c4dcea7",
+      "rows": 5,
+      "physical_newlines": 6
+    },
+    {
+      "file": "EOIR Case Data 2026-1001/Lookup/tblLookupContactChange.csv",
+      "table": "lu_contact_change",
+      "bytes": 863,
+      "sha256": "e926ff59f3d31bba153d66aa7f51c472388c77db9d42f0521ed2cba4136fb0a2",
+      "rows": 9,
+      "physical_newlines": 10
+    },
+    {
+      "file": "EOIR Case Data 2026-1001/Lookup/tblLookupCountry.csv",
+      "table": "lu_country",
+      "bytes": 17646,
+      "sha256": "edf6f057a802bd57ec038409e2f37122231bdfa38f88fad159d8a58d806c6ec4",
+      "rows": 254,
+      "physical_newlines": 255
+    },
+    {
+      "file": "EOIR Case Data 2026-1001/Lookup/tblLookupCourtDecision.csv",
+      "table": "lu_court_decision",
+      "bytes": 15057,
+      "sha256": "6bd691fb91249bee74450c59486158ec8aab6a259ead74cfa475583302da3e91",
+      "rows": 217,
+      "physical_newlines": 218
+    },
+    {
+      "file": "EOIR Case Data 2026-1001/Lookup/tblLookupCustodyStatus.csv",
+      "table": "lu_custody_status",
+      "bytes": 182,
+      "sha256": "e622264afeb066b60949dcadd1eefd46f04ab3a37f3dd2d5e940a15975594f74",
+      "rows": 3,
+      "physical_newlines": 4
+    },
+    {
+      "file": "EOIR Case Data 2026-1001/Lookup/tblLookUpDDDecisionTypes.csv",
+      "table": "lu_dddecision_types",
+      "bytes": 1603,
+      "sha256": "b73443e3552c133bf87998f724c8c7426c19bb6b7b3a213fd1500e6cad372a61",
+      "rows": 23,
+      "physical_newlines": 24
+    },
+    {
+      "file": "EOIR Case Data 2026-1001/Lookup/tblDecCode.csv",
+      "table": "lu_dec_code",
+      "bytes": 655,
+      "sha256": "f8bd8f511590da1ecd29eb432ac64378c2f5be89618f35feaa8ac64325624703",
+      "rows": 12,
+      "physical_newlines": 13
+    },
+    {
+      "file": "EOIR Case Data 2026-1001/Lookup/tblLookupDistrictLocation.csv",
+      "table": "lu_district_location",
+      "bytes": 26784,
+      "sha256": "c329c80a23c543a1e5fcc03e17bd11f9caccf4e22f7a8ebd1b6400dd8c2a76b9",
+      "rows": 289,
+      "physical_newlines": 290
+    },
+    {
+      "file": "EOIR Case Data 2026-1001/Lookup/tblLookupFedCourtDecision.csv",
+      "table": "lu_fed_court_decision",
+      "bytes": 350,
+      "sha256": "5bdbe8feefc098b1703a9822bee486f30a6b4556faea207cd697aed868b5180d",
+      "rows": 4,
+      "physical_newlines": 5
+    },
+    {
+      "file": "EOIR Case Data 2026-1001/Lookup/tblLookupFedCourtRemandTo.csv",
+      "table": "lu_fed_court_remand_to",
+      "bytes": 193,
+      "sha256": "1326d8ee0a8339b6c716acce8a9a9f0528bdfd44a1b5cca9a64bf5c6f82a431e",
+      "rows": 2,
+      "physical_newlines": 3
+    },
+    {
+      "file": "EOIR Case Data 2026-1001/Lookup/tblLookupFeeStatus.csv",
+      "table": "lu_fee_status",
+      "bytes": 386,
+      "sha256": "e424b61b86e4b427a8b03588b34d66f0755d1d5760925c77330acf45350d90c9",
+      "rows": 5,
+      "physical_newlines": 6
+    },
+    {
+      "file": "EOIR Case Data 2026-1001/Lookup/tblLookupFeeType.csv",
+      "table": "lu_fee_type",
+      "bytes": 297,
+      "sha256": "37097fd84772e38a920610ce6874fc492452ded8943ccca7eecd7a0935b158d8",
+      "rows": 3,
+      "physical_newlines": 4
+    },
+    {
+      "file": "EOIR Case Data 2026-1001/Lookup/tblLookupFiledBy.csv",
+      "table": "lu_filed_by",
+      "bytes": 578,
+      "sha256": "6e39e385d483ed244a3b0b39997b8dce12b5dd266e07435024c139c8b262f602",
+      "rows": 9,
+      "physical_newlines": 10
+    },
+    {
+      "file": "EOIR Case Data 2026-1001/Lookup/tblLookupFiling_Method.csv",
+      "table": "lu_filing_method",
+      "bytes": 305,
+      "sha256": "966ed24b3503f68c46da4ffb05d05ec12e7bec579c8ea298887c7ca4025b23d2",
+      "rows": 4,
+      "physical_newlines": 5
+    },
+    {
+      "file": "EOIR Case Data 2026-1001/Lookup/tblLookupFiling_Method_Party.csv",
+      "table": "lu_filing_method_party",
+      "bytes": 595,
+      "sha256": "37d6569abb614a6a23752e71675eff85efc98423e5d7a4224e755781f3ae2799",
+      "rows": 10,
+      "physical_newlines": 11
+    },
+    {
+      "file": "EOIR Case Data 2026-1001/Lookup/tblLookupFinalDisposition.csv",
+      "table": "lu_final_disposition",
+      "bytes": 339,
+      "sha256": "4ee3cc7718b2283bbf015a874dcd95497c6fc263ba237757d81a7ff16451da17",
+      "rows": 4,
+      "physical_newlines": 5
+    },
+    {
+      "file": "EOIR Case Data 2026-1001/Lookup/tblLookupHloc.csv",
+      "table": "lu_hearing_location",
+      "bytes": 277592,
+      "sha256": "043759f8328282d2975b1d87f0d3a51e9aa4b8cf0934b8d50dd95b6c0511c70d",
+      "rows": 1381,
+      "physical_newlines": 1382
+    },
+    {
+      "file": "EOIR Case Data 2026-1001/Lookup/tblLookupHoldReason.csv",
+      "table": "lu_hold_reason",
+      "bytes": 3090,
+      "sha256": "ffa928fad0f957b319cd1034e9e25f1e1198a553912bd39f7d126f7afc43182a",
+      "rows": 37,
+      "physical_newlines": 38
+    },
+    {
+      "file": "EOIR Case Data 2026-1001/Lookup/tblLookupHolidays.csv",
+      "table": "lu_holidays",
+      "bytes": 47462,
+      "sha256": "7e3bbe8bcddd0c6364dee5bcdb28accc0f978995eb6c1c9773486bb06cd436ef",
+      "rows": 613,
+      "physical_newlines": 614
+    },
+    {
+      "file": "EOIR Case Data 2026-1001/Lookup/tblLookupInTrPr.csv",
+      "table": "lu_in_tr_pr",
+      "bytes": 4931,
+      "sha256": "4f00090be7a43dfb137feeda2d1600215fabe5ddfeaae344d75ee1d13136e345",
+      "rows": 94,
+      "physical_newlines": 95
+    },
+    {
+      "file": "EOIR Case Data 2026-1001/Lookup/tblLookupInTrPrAgenda.csv",
+      "table": "lu_in_tr_pr_agenda",
+      "bytes": 603,
+      "sha256": "625574162d8caf884548513d024a17a9eb71a202f2402af4f5060dc38f7d40ae",
+      "rows": 5,
+      "physical_newlines": 6
+    },
+    {
+      "file": "EOIR Case Data 2026-1001/Lookup/tblLookupInTrPrLangGroup.csv",
+      "table": "lu_in_tr_pr_lang_group",
+      "bytes": 226,
+      "sha256": "84fc5b90dba643459678e6b7646ec96f107f7de855220e6fd0b2d0293651f5ba",
+      "rows": 2,
+      "physical_newlines": 3
+    },
+    {
+      "file": "EOIR Case Data 2026-1001/Lookup/tblLookupInmate.csv",
+      "table": "lu_inmate",
+      "bytes": 836010,
+      "sha256": "2df33f8b820db1e09b6e6fb9871daa672d32c9ec4323bfc10715a9d0b19c3af6",
+      "rows": 4850,
+      "physical_newlines": 4851
+    },
+    {
+      "file": "EOIR Case Data 2026-1001/Lookup/tblInmateHousing.csv",
+      "table": "lu_inmate_housing",
+      "bytes": 392972,
+      "sha256": "49f0e5cc1138163f7f2e59e7cdefe520e4542da99ed0da316a6e8331b5eaa7a9",
+      "rows": 4752,
+      "physical_newlines": 4731
+    },
+    {
+      "file": "EOIR Case Data 2026-1001/Lookup/tblLookup_INS_Clock_Entry_Status.csv",
+      "table": "lu_ins_clock_entry_status",
+      "bytes": 777,
+      "sha256": "04d9d4adcc94f804b40256d89d1d938a1d8e30e36bf1d8b94ddc291b171af3e8",
+      "rows": 8,
+      "physical_newlines": 9
+    },
+    {
+      "file": "EOIR Case Data 2026-1001/Lookup/tblLookUpINSAddress.csv",
+      "table": "lu_insaddress",
+      "bytes": 207926,
+      "sha256": "82bc668ca5f7fda6eb6d6f9d2dd5ac5833e9149bfadb5f7ec17a172f34330d36",
+      "rows": 1469,
+      "physical_newlines": 1470
+    },
+    {
+      "file": "EOIR Case Data 2026-1001/Lookup/tblLookupINSLOC.csv",
+      "table": "lu_insloc",
+      "bytes": 76018,
+      "sha256": "a47e7da7909a6db959b7918ab0e89dd2c3b8410de29eebec2dc051fe59855c09",
+      "rows": 1020,
+      "physical_newlines": 1021
+    },
+    {
+      "file": "EOIR Case Data 2026-1001/Lookup/tblINSoffice.csv",
+      "table": "lu_insoffice",
+      "bytes": 6310,
+      "sha256": "47f9887a21f1ad576ae6e37cd7357432cbbace522e7dffaa2858530610294d8e",
+      "rows": 74,
+      "physical_newlines": 75
+    },
+    {
+      "file": "EOIR Case Data 2026-1001/Lookup/tblLookupINSTA.csv",
+      "table": "lu_insta",
+      "bytes": 579590,
+      "sha256": "52d297ac1de5154ded841a1e43e07eec5a2394645cf40a9d18cb8f7a3f778acb",
+      "rows": 9671,
+      "physical_newlines": 9672
+    },
+    {
+      "file": "EOIR Case Data 2026-1001/Lookup/tblLookupIntrPrLang.csv",
+      "table": "lu_intr_pr_lang",
+      "bytes": 970,
+      "sha256": "ca2e7c773432af056a385a2c2a361d4529820d84f500bf46d9d60c46544d482e",
+      "rows": 14,
+      "physical_newlines": 15
+    },
+    {
+      "file": "EOIR Case Data 2026-1001/Lookup/tblLookupJudge.csv",
+      "table": "lu_judge",
+      "bytes": 174753,
+      "sha256": "c6cb1771bfad6bc3e35516be9ded02b0ccd339b8f35d003166b9f9041fb96072",
+      "rows": 1840,
+      "physical_newlines": 1841
+    },
+    {
+      "file": "EOIR Case Data 2026-1001/Lookup/tblLookupJudgeBaseCity.csv",
+      "table": "lu_judge_base_city",
+      "bytes": 1609741,
+      "sha256": "95acd75f99b47a87166be3b14a9219d8a96ed29b8699f52d91a6a591ca92bec3",
+      "rows": 12777,
+      "physical_newlines": 12778
+    },
+    {
+      "file": "EOIR Case Data 2026-1001/Lookup/tblLookup_Juvenile.csv",
+      "table": "lu_juvenile",
+      "bytes": 547,
+      "sha256": "bec3e2d02af8b7cd396a3b87960f7552706b12248b6975ff6f4d8984bb691b23",
+      "rows": 6,
+      "physical_newlines": 7
+    },
+    {
+      "file": "EOIR Case Data 2026-1001/Lookup/tblLanguage.csv",
+      "table": "lu_language",
+      "bytes": 52042,
+      "sha256": "21987eaded35394a309f1a35f9cce17444c5e75ef808c0be21c7f2fa76edb0c5",
+      "rows": 743,
+      "physical_newlines": 744
+    },
+    {
+      "file": "EOIR Case Data 2026-1001/Lookup/tblLookupMotionType.csv",
+      "table": "lu_motion_type",
+      "bytes": 7712,
+      "sha256": "034787c52c8380d647b3d8e24d466ce773d2c7f4684f29af9cd637e24d05da99",
+      "rows": 72,
+      "physical_newlines": 73
+    },
+    {
+      "file": "EOIR Case Data 2026-1001/Lookup/tblLookupNationality.csv",
+      "table": "lu_nationality",
+      "bytes": 15319,
+      "sha256": "ca70f4a535b28f7580505be3ba539364da24aba82fb984526f28cf6cfbb625c7",
+      "rows": 251,
+      "physical_newlines": 252
+    },
+    {
+      "file": "EOIR Case Data 2026-1001/Lookup/tblLookupNOTICE.csv",
+      "table": "lu_notice",
+      "bytes": 38021,
+      "sha256": "efb58afea1da3db69611e0d5b342ae559700ae2898f164c5d49a8eeec0e48ed4",
+      "rows": 598,
+      "physical_newlines": 599
+    },
+    {
+      "file": "EOIR Case Data 2026-1001/Lookup/tblLookupOAResponse.csv",
+      "table": "lu_oaresponse",
+      "bytes": 292,
+      "sha256": "df083ed8c7f7b6bb46bc1e1876d9264a4e4727dec0176475ca2acf9d5c1a56d3",
+      "rows": 4,
+      "physical_newlines": 5
+    },
+    {
+      "file": "EOIR Case Data 2026-1001/Lookup/tblLookupOfficeLocation.csv",
+      "table": "lu_office_location",
+      "bytes": 23789,
+      "sha256": "4719b57e7a18b0fe760dbba7c188a40c7245afc62b30b2835f2f0325abfce07b",
+      "rows": 265,
+      "physical_newlines": 266
+    },
+    {
+      "file": "EOIR Case Data 2026-1001/Lookup/tblPanels.csv",
+      "table": "lu_panels",
+      "bytes": 1182,
+      "sha256": "3109075c8320654ee04690db2acb84238dc19752c0937645c93630cb2d18151c",
+      "rows": 20,
+      "physical_newlines": 21
+    },
+    {
+      "file": "EOIR Case Data 2026-1001/Lookup/tblLookupPriority.csv",
+      "table": "lu_priority",
+      "bytes": 1301,
+      "sha256": "e5ec154965d7aacb92f3feb88677286c8a59a960e1a10c34e67ce96758686413",
+      "rows": 16,
+      "physical_newlines": 17
+    },
+    {
+      "file": "EOIR Case Data 2026-1001/Lookup/tblLookupRegion.csv",
+      "table": "lu_region",
+      "bytes": 163,
+      "sha256": "af3b58a96e870263e0ae6485eca6588e5312d817b77f94c543816f7919ea9fcb",
+      "rows": 2,
+      "physical_newlines": 3
+    },
+    {
+      "file": "EOIR Case Data 2026-1001/Lookup/tblResponsibleParty.csv",
+      "table": "lu_responsible_party",
+      "bytes": 223118,
+      "sha256": "f48a247ddff850cd2f9513c80a779550518bb832f18811cee4d26c61bda6ba9c",
+      "rows": 3381,
+      "physical_newlines": 3382
+    },
+    {
+      "file": "EOIR Case Data 2026-1001/Lookup/tbllookupSchedule_Type.csv",
+      "table": "lu_schedule_type",
+      "bytes": 2002,
+      "sha256": "cd312286eb697853389a6bab94c88d7fce3489aa136cd54151b7a2adeed18487",
+      "rows": 36,
+      "physical_newlines": 37
+    },
+    {
+      "file": "EOIR Case Data 2026-1001/Lookup/tblLookupService_Method.csv",
+      "table": "lu_service_method",
+      "bytes": 413,
+      "sha256": "49ccb2ef5fe7497463a81d4e0f9ef19eb52ee94b0cd4c5de5fa46dcb87f729a3",
+      "rows": 6,
+      "physical_newlines": 7
+    },
+    {
+      "file": "EOIR Case Data 2026-1001/Lookup/tblLookupSex.csv",
+      "table": "lu_sex",
+      "bytes": 144,
+      "sha256": "502a9eedf8c2df0b0cee02391d9930639c0fc59dd80f776f0fc97a8c0ad19964",
+      "rows": 2,
+      "physical_newlines": 3
+    },
+    {
+      "file": "EOIR Case Data 2026-1001/Lookup/tblLookupSpecialIssue.csv",
+      "table": "lu_special_issue",
+      "bytes": 3360,
+      "sha256": "0f2584487654083305a7fbc8de27f39707f59ca173a4fe9137215f1ff7d0b497",
+      "rows": 43,
+      "physical_newlines": 44
+    },
+    {
+      "file": "EOIR Case Data 2026-1001/Lookup/tblLookupState.csv",
+      "table": "lu_state",
+      "bytes": 2686,
+      "sha256": "51e020009e85b816655ef4b4771a7080d411b47c689d6ca766eb352e8a339c1b",
+      "rows": 59,
+      "physical_newlines": 60
+    },
+    {
+      "file": "EOIR Case Data 2026-1001/Lookup/tblTeams.csv",
+      "table": "lu_teams",
+      "bytes": 2374,
+      "sha256": "b6a2a612a3b99f1a014634568cdb8abc1707fcbeb65754b4b01c4ba657d2a1dd",
+      "rows": 37,
+      "physical_newlines": 38
+    },
+    {
+      "file": "EOIR Case Data 2026-1001/Lookup/tblTortureConvID.csv",
+      "table": "lu_torture_conv_id",
+      "bytes": 475,
+      "sha256": "2e00fae334831f697ba2bb9fc84eba005b7d1a04748136fa97ce0f3f2a9c6d71",
+      "rows": 8,
+      "physical_newlines": 9
+    },
+    {
+      "file": "EOIR Case Data 2026-1001/Lookup/tblLookupTranscribers.csv",
+      "table": "lu_transcribers",
+      "bytes": 1248,
+      "sha256": "5cb0976f02b8e1a3969c0e16d90cb974a453f7e19cd31376b0ca17f9d2fb890b",
+      "rows": 14,
+      "physical_newlines": 15
+    },
+    {
+      "file": "EOIR Case Data 2026-1001/Lookup/tblLookupVote.csv",
+      "table": "lu_vote",
+      "bytes": 448,
+      "sha256": "01cb490014a02f03fd5305710f85679b0bbf14680e29d3ed4190c7dd90676772",
+      "rows": 7,
+      "physical_newlines": 8
+    },
+    {
+      "file": "EOIR Case Data 2026-1001/EOIR Case Data/A_TblCaseIdentifier.csv",
+      "table": "case_identifiers",
+      "bytes": 54055016,
+      "sha256": "dabc61c9a3e4f6505faa5fd8673bcbaf0f2d5498c0866543642eefa1fbe3b819",
+      "rows": 2669114,
+      "physical_newlines": 2669123
+    },
+    {
+      "file": "EOIR Case Data 2026-1001/EOIR Case Data/tbl_JuvenileHistory.csv",
+      "table": "juvenile_history",
+      "bytes": 193022539,
+      "sha256": "a695a7e293e8365eae743402621f732148b253217c54684efb44ebea206d553b",
+      "rows": 3183371,
+      "physical_newlines": 3183372
+    },
+    {
+      "file": "EOIR Case Data 2026-1001/EOIR Case Data/tbl_Lead_Rider.csv",
+      "table": "lead_rider",
+      "bytes": 269212180,
+      "sha256": "4c27ee300f0eb2fce1475162460f2657236db16c7be1dac2b744e6ad415b0931",
+      "rows": 2678697,
+      "physical_newlines": 2678698
+    },
+    {
+      "file": "EOIR Case Data 2026-1001/EOIR Case Data/tbl_CasePriorityHistory.csv",
+      "table": "case_priority_history",
+      "bytes": 10503021,
+      "sha256": "58803d7deae9b678852777f8b19a5463669a6223d68fadf9c460d41a61440b1f",
+      "rows": 151250,
+      "physical_newlines": 151251
+    },
+    {
+      "file": "EOIR Case Data 2026-1001/EOIR Case Data/tbl_EOIR_Attorney.csv",
+      "table": "attorneys",
+      "bytes": 41907856,
+      "sha256": "2c8650c00eda5652befab41121f71539c6405a562e6daef1d3c12510d18fb4c4",
+      "rows": 411877,
+      "physical_newlines": 411878
+    },
+    {
+      "file": "EOIR Case Data 2026-1001/EOIR Case Data/tbl_CustodyHistory.csv",
+      "table": "custody_history",
+      "bytes": 298413346,
+      "sha256": "c2f24c21a1efef97a30261d8fe932ff12f69c67e198d92fae4b52bb3d2251d37",
+      "rows": 10279713,
+      "physical_newlines": 10279714
+    },
+    {
+      "file": "EOIR Case Data 2026-1001/EOIR Case Data/tblAppeal.csv",
+      "table": "appeals",
+      "bytes": 192154152,
+      "sha256": "e9b40444adef60405e97d41b26229c6aa48dde6fcdbafcd887bb8587e413a290",
+      "rows": 1585540,
+      "physical_newlines": 1585541
+    },
+    {
+      "file": "EOIR Case Data 2026-1001/EOIR Case Data/tblProBono.csv",
+      "table": "pro_bono",
+      "bytes": 15224407,
+      "sha256": "dbfdeee693d2bcea591394e262a7e3fbeab24c789934d5d42c009afb13974ecc",
+      "rows": 68485,
+      "physical_newlines": 68486
+    },
+    {
+      "file": "EOIR Case Data 2026-1001/EOIR Case Data/A_TblCase.csv",
+      "table": "cases",
+      "bytes": 1907040483,
+      "sha256": "d3e731d3a358dc08436a556f3e7a5380e5a8ed7df474a7d80b5bc4050b924662",
+      "rows": 12869593,
+      "physical_newlines": 12869753
+    },
+    {
+      "file": "EOIR Case Data 2026-1001/EOIR Case Data/tbl_Court_Appln.csv",
+      "table": "applications",
+      "bytes": 933053567,
+      "sha256": "3d5465f2a2673998499040aa31be204fc620ab968424e2e7440054c3d6311d76",
+      "rows": 16460394,
+      "physical_newlines": 16460388
+    },
+    {
+      "file": "EOIR Case Data 2026-1001/EOIR Case Data/D_TblAssociatedBond.csv",
+      "table": "bonds",
+      "bytes": 375285193,
+      "sha256": "aa2ac2ae184ecb5825fc8020d5623de99de0cf452232791c2649fd7107cfcaa5",
+      "rows": 1654849,
+      "physical_newlines": 1654836
+    },
+    {
+      "file": "EOIR Case Data 2026-1001/EOIR Case Data/tbl_Court_Motions.csv",
+      "table": "motions",
+      "bytes": 2127988284,
+      "sha256": "63b8d1de1ef200e51810e0d961f660f5312c5dc004ab0e2c8428c2f45ed4958e",
+      "rows": 9178220,
+      "physical_newlines": 9178220
+    },
+    {
+      "file": "EOIR Case Data 2026-1001/EOIR Case Data/B_TblProceedCharges.csv",
+      "table": "charges",
+      "bytes": 747390449,
+      "sha256": "d44dd173bf8b203bb10c13f82d58049fdbbf8d1e69d7911f77293d82dd199e48",
+      "rows": 19270794,
+      "physical_newlines": 19270795
+    },
+    {
+      "file": "EOIR Case Data 2026-1001/EOIR Case Data/B_TblProceeding.csv",
+      "table": "proceedings",
+      "bytes": 3537654163,
+      "sha256": "272bd1792a084d2e9bc16e7a7383f46a73251f4658876ae6f72c2ed5bc3bfbaf",
+      "rows": 16899722,
+      "physical_newlines": 16899701
+    },
+    {
+      "file": "EOIR Case Data 2026-1001/EOIR Case Data/tbl_RepsAssigned.csv",
+      "table": "representatives",
+      "bytes": 2254696872,
+      "sha256": "26c7f2b33b43fb6ac570b43791fc7aaac015b0ede37478011e4e7329ad27b19f",
+      "rows": 27105444,
+      "physical_newlines": 27105445
+    },
+    {
+      "file": "EOIR Case Data 2026-1001/EOIR Case Data/tbl_schedule.csv",
+      "table": "schedule",
+      "bytes": 10040892258,
+      "sha256": "40cff670fd9e72bb5b06155db967ea1f40446daf0e1924ed41c3089db2dcdbd7",
+      "rows": 48492125,
+      "physical_newlines": 48492123
+    },
+    {
+      "file": "EOIR Case Data 2026-1001/EOIR Case Data/tblAppeal2.csv",
+      "table": "appeal2",
+      "bytes": 31121671,
+      "sha256": "07d15cc996a450dae7fc776f5cdbbee9399ba691e5055c0fff5b1d91fa962bf5",
+      "rows": 1283643,
+      "physical_newlines": 1283644
+    },
+    {
+      "file": "EOIR Case Data 2026-1001/EOIR Case Data/tblAppealFedCourts.csv",
+      "table": "appeal_fed_courts",
+      "bytes": 7353995,
+      "sha256": "86c968482edfdc2c2ba4f8d72510c1d7cf0ed29573a58d4c1f29f6588458d310",
+      "rows": 183628,
+      "physical_newlines": 183629
+    },
+    {
+      "file": "EOIR Case Data 2026-1001/Schema_Related/EOIRDB_Schema.csv",
+      "table": "eoirdb_schema",
+      "bytes": 44959,
+      "sha256": "a9d4a3fd36805c5b0cb24c29de46a610a69abd1bcbd0e754157e45c5acd4dd35",
+      "rows": 1051,
+      "physical_newlines": 1052
+    },
+    {
+      "file": "EOIR Case Data 2026-1001/EOIR Case Data/tblThreeMbrReferrals.csv",
+      "table": "three_mbr_referrals",
+      "bytes": 3651990,
+      "sha256": "b48c2b39d667e89a925959eb4f8ee261c304230100e1a117a5d1e605ed40abcd",
+      "rows": 85059,
+      "physical_newlines": 85060
+    }
+  ],
+  "rows": 174560256,
+  "tables": 98,
+  "views": [
+    "v_proceedings_full",
+    "v_first_hearing",
+    "v_case_summary"
+  ],
+  "artifact": {
+    "bytes": 4725420032,
+    "sha256": "b86bfdbca2867d5859ba625f76bb51e90218b47a78676712168c4c0fea856634"
+  },
+  "validation": "passed",
+  "limits": {
+    "threads": 1,
+    "duckdb_memory": "1GiB",
+    "spill": "1GiB",
+    "extract": "one member at a time"
+  }
+}
